@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooding Website</title>
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css">
+    <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        #heading{
+            height: 50px;
+            color: white;
+            background-color: rgb(80, 79, 79);
+            border-radius: 45px;
+        }
+        #heading:hover{
+            box-shadow: 10px 10px 30px black, -10px -10px 30px black;
+        }
+        .container_1 {
+            max-width: auto;
+            margin: 10px auto;
+        }
+        
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #555;
+            white-space: nowrap;
+        }
+        
+        .filter-option {
+            padding: 8px 12px;
+            border-radius: 18px;
+            background-color: #f0f0f0;
+            border: 1px solid #e0e0e0;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .filter-option:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .filter-option.active {
+            background-color: #ff5722;
+            color: white;
+            border-color: #ff5722;
+        }
+        
+        .filter-option i {
+            font-size: 12px;
+        }
+        
+        .divider {
+            width: 1px;
+            height: 30px;
+            background-color: #e0e0e0;
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .divider {
+                display: none;
+            }
+        }
+        
+        .app-download-container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .app-download-container h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .app-download-container p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .input-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .input-group input:focus {
+            border-color: #ff5722;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #e64a19;
+        }
+        
+        .share-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #ff5722;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .download-platforms {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 25px;
+        }
+        
+        .download-platforms p {
+            color: #999;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .platform-badge {
+            display: inline-block;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 0 5px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .platform-badge:hover {
+            background-color: #eee;
+        }
+        
+        @media (max-width: 576px) {
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+        .container_2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .city-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .city-card h3 {
+            color: #ff5722;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .city-card p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .show-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .show-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .show-more-btn:hover {
+            background-color: #e64a19;
+        }
+        
+        .hidden-cities {
+            display: none;
+        }
+        
+        .hidden-cities.show {
+            display: grid;
+        }
+        
+        @media (max-width: 768px) {
+            .cities-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-utensils"></i> Fooding Website</h1>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="contect.html"><i class="fas fa-envelope"></i> Contact</a>
+            <div class="dropdown">
+                <a href="" class="dropdown-toggle"><i class="fas fa-list"></i> Menu</a>
+                <div class="dropdown-menu">
+                    <a href="menu_bar/veg.html" target="_blank">Vegetarian</a>
+                    <a href="menu_bar/drink.html" target="_blank">Drink</a>
+                    <a href="menu_bar/desserts.html" target="_blank">Desserts</a>
+                </div>
+            </div>
+            <a href="order.html"><i class="fas fa-shopping-cart"></i> Order</a>
+           
+            
+        </nav>
+        <div class="search-container">
+            <input type="searching" id="search" placeholder="Search for food...">
+            <button><i class="fas fa-search"></i> Search</button>
+        </div>
+    </header>
+    
+
+    <!-- Horizontal Image Bar -->
+    <div class="carousel">
+        <marquee behavior="scroll" direction="left" scrollamount="15" loop="infinite">
+            <img src="food_img\image copy 6.png" alt="Featured Food 1">
+            <img src="food_img\image copy 7.png" alt="Featured Food 2">
+            <img src="food_img\image copy 8.png" alt="Featured Food 3">
+            <img src="food_img\image copy 9.png" alt="Featured Food 4">
+            <img src="food_img\image copy 10.png" alt="Featured Food 5">
+            <img src="food_img\image copy 11.png" alt="Featured Food 6">
+            <img src="food_img\image copy 12.png" alt="Featured Food 7">
+        </marquee>
+    </div>
+
+<!-- Bootstrap Video Bar -->
+
+    <!-- Main 3 Card -->
+    <hr>
+    <center><h1 id="heading" style="font-family: Engravers MT; text-shadow: 4px 4px 6px black;"><i>Satisfy Your Hunger – Order Now!</i></h1></center>
+    <div class="container">
+        <div class="food-block">
+            <img src="food_img\image.png" alt="Food Image">
+            <div class="food-details">
+                <h3><i class="fas fa-pizza-slice"></i> Vegitarian Food</h3>
+                <p>A mouthwatering cheese pizza topped with fresh ingredients.</p>
+                <a href="menu_bar\veg.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
+            </div>
+        </div>
+
+        <div class="food-block">
+            <img src="food_img\image copy 17.png" alt="Food Image">
+            <div class="food-details">
+                <h3><i class="fas fa-tint"></i> Shakes</h3>
+                <p>Juicy burger with a kick of spices and tangy sauce.</p>
+                <a href="menu_bar\drink.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
+            </div>
+        </div>
+
+        <div class="food-block">
+            <img src="food_img\image copy 24.png" alt="Food Image">
+            <div class="food-details">
+                <h3><i class="fas fa-ice-cream"></i> Desserts</h3>
+                <p>Crispy fresh vegetables with a delicious dressing.</p>
+                <a href="menu_bar\desserts.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
+            </div>
+        </div>
+    </div>
+
+    <hr size="2px" color="orange">
+    <hr size="5px" color="orange">
+    <hr size="2px" color="orange">
+    
+    <!-- Rate fixing -->
+    <div class="container_1">
+        <center><h1 id="heading" style="font-family: Engravers MT; text-shadow: 4px 4px 6px black;"><i>Restaurants with online food delivery in Chhindwara</i></h1></center>
+        
+        <div class="filter-bar">
+            <div class="filter-group">
+                <span class="filter-label">Filter</span>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="filter-group">
+                <span class="filter-label">Sort By</span>
+                <div class="filter-option">
+                    <i class="fas fa-sort-amount-down"></i> Relevance
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-clock"></i> Delivery Time
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-star"></i> Rating
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-rupee-sign"></i> Cost: Low to High
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-rupee-sign"></i> Cost: High to Low
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="filter-group">
+                <div class="filter-option active">
+                    <i class="fas fa-bolt"></i> Fast Delivery
+                </div>
+                <div class="filter-option active">
+                    <i class="fas fa-star"></i> Ratings 4.0+
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-leaf"></i> Pure Veg
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-tag"></i> Offers
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-rupee-sign"></i> Rs. 300–Rs. 600
+                </div>
+                <div class="filter-option">
+                    <i class="fas fa-rupee-sign"></i> Less than Rs. 300
+                </div>
+            </div>
+        </div>
+        
+        <!-- Restaurant listings would go here -->
+    </div>
+    
+    <hr size="2px" color="orange">
+    <hr size="5px" color="orange">
+    <hr size="2px" color="orange">
+    
+    <!-- Downloading my website's App -->
+     <center><h1 id="heading" style="font-family: Engravers MT; text-shadow: 4px 4px 6px black;"><i>Download Baba ka Dhaba App from here</i></h1></center>
+    <div class="app-download-container">
+        <h2>Get the Baba_ka_Dhaba app</h2>
+        <p>We will send you a link, open it on your Phone/PC to download the app</p>
+        
+        <div class="input-group">
+            <input type="text" placeholder="Email">
+            <button class="btn">Email</button>
+        </div>
+        
+        <div class="input-group">
+            <input type="text" placeholder="Phone">
+            <button class="btn">Share App Link</button>
+        </div>
+        
+        <a href="#" class="share-link">Share download link via SMS instead</a>
+        
+        <div class="download-platforms">
+            <p>Download app from</p>
+            <a href="#" class="platform-badge">
+                <i class="fab fa-google-play"></i> Google Play
+            </a>
+            <a href="#" class="platform-badge">
+                <i class="fab fa-apple"></i> App Store
+            </a>
+        </div>
+    </div>
+
+
+    <!-- See your Food's details -->
+    <div class="vertical-list">
+        <div class="vertical-item">
+            <img src="food_img\image copy 3.png" alt="Chowmein - Smoky Flavor">
+            <div class="item-details">
+                <h4>Chowmein</h4>
+                <p>
+                    Our <strong>special vegetarian Chowmein</strong> is made with fresh veggies, tender noodles, and bold flavors!
+                </p>
+                <p class="extra-content">
+                    Stir-fried with soy sauce, garlic, and secret spices, every bite offers a perfect blend of smoky goodness. 
+                    Served with spicy chutney or mild garlic sauce, making it an ideal meal for noodle lovers.
+                </p>
+                <a href="menu_bar\veg.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    
+        <div class="vertical-item">
+            <img src="food_img\image copy 4.png" alt="Pasta Alfredo - Creamy & Cheesy">
+            <div class="item-details">
+                <h4>Pasta Alfredo</h4>
+                <p>
+                    Indulge in the rich, creamy delight of our <strong>vegetarian Pasta Alfredo</strong> with Parmesan cheese and butter.
+                </p>
+                <p class="extra-content">
+                    Made with fresh cream, garlic, and a touch of nutmeg, this classic Italian dish is a comfort food favorite. 
+                    Add sautéed mushrooms or spinach for an extra burst of flavor.
+                </p>
+                <a href="menu_bar\veg.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    
+        <div class="vertical-item">
+            <img src="food_img\image copy 5.png" alt="Vegetable Stir-Fry - Fresh & Savory">
+            <div class="item-details">
+                <h4>Vegetable Stir-Fry</h4>
+                <p>
+                    Enjoy a healthy mix of fresh veggies stir-fried to perfection with a soy-garlic glaze.
+                </p>
+                <p class="extra-content">
+                    Featuring bell peppers, carrots, baby corn, and crunchy greens, this dish is both nutritious and flavorful. 
+                    Pairs well with rice or noodles for a satisfying meal.
+                </p>
+                <a href="menu_bar\veg.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    
+        <div class="vertical-item">
+            <img src="food_img\image copy 29.png" alt="Margherita Pizza - Classic & Delicious">
+            <div class="item-details">
+                <h4>Margherita Pizza</h4>
+                <p>
+                    A true Italian classic, our <strong>Margherita Pizza</strong> is made with fresh mozzarella and basil.
+                </p>
+                <p class="extra-content">
+                    With a crispy thin crust and a rich tomato sauce, every bite melts in your mouth. The perfect balance of tangy and cheesy goodness!
+                </p>
+                <a href="menu_bar\veg.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    
+        <div class="vertical-item">
+            <img src="food_img\image copy 34.png" alt="Paneer Tikka - Smoky & Spiced">
+            <div class="item-details">
+                <h4>Paneer Tikka</h4>
+                <p>
+                    A smoky, tandoori favorite, our <strong>Paneer Tikka</strong> is marinated with yogurt and Indian spices.
+                </p>
+                <p class="extra-content">
+                    Grilled to perfection, this dish is served with mint chutney and a side of fresh salad, bringing out the best in every bite.
+                </p>
+                <a href="menu_bar\veg.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    
+        <div class="vertical-item">
+            <img src="food_img\image copy 21.png" alt="Chocolate Lava Cake - Warm & Indulgent">
+            <div class="item-details">
+                <h4>Chocolate Lava Cake</h4>
+                <p>
+                    A warm, rich chocolate cake with a gooey molten center – pure indulgence!
+                </p>
+                <p class="extra-content">
+                    Served with a scoop of vanilla ice cream and drizzled with chocolate sauce, this dessert is a chocoholic’s dream.
+                </p>
+                <a href="menu_bar\desserts.html" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container_2">
+        <div class="section-header">
+            <center><h1 id="heading" style="font-family: Engravers MT; text-shadow: 4px 4px 6px black;">Best Places to Eat Across Cities</h1></center>
+            <p>Discover top-rated restaurants in India's favorite food destinations of our Company.</p>
+        </div>
+        
+        <div class="cities-grid" id="visible-cities">
+            <!-- First Row -->
+            <div class="city-card">
+                <h3>Best Restaurants in Bangalore</h3>
+                <p>Silicon Valley's culinary hotspots</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Pune</h3>
+                <p>Maharashtrian flavors and more</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Mumbai</h3>
+                <p>City of dreams and delicious eats</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Delhi</h3>
+                <p>Mughlai to modern cuisine</p>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="city-card">
+                <h3>Best Restaurants in Hyderabad</h3>
+                <p>Home of the legendary biryani</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Kolkata</h3>
+                <p>Where sweets meet street food</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Chennai</h3>
+                <p>Authentic South Indian delights</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Chandigarh</h3>
+                <p>Punjabi flavors at their best</p>
+            </div>
+        </div>
+        
+        <div class="cities-grid hidden-cities" id="hidden-cities">
+            <!-- Hidden Cities -->
+            <div class="city-card">
+                <h3>Best Restaurants in Ahmedabad</h3>
+                <p>Gujarati thalis and beyond</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Jaipur</h3>
+                <p>Rajasthani royal cuisine</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Nagpur</h3>
+                <p>Famous for Saoji delicacies</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Goa</h3>
+                <p>Seafood and Portuguese influence</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Lucknow</h3>
+                <p>Awadhi cuisine at its finest</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Kochi</h3>
+                <p>Kerala's coastal flavors</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Indore</h3>
+                <p>Street food paradise</p>
+            </div>
+            
+            <div class="city-card">
+                <h3>Best Restaurants in Shimla</h3>
+                <p>Himachali specialties</p>
+            </div>
+        </div>
+        
+        <div class="show-more">
+            <button class="show-more-btn" id="show-more-btn">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer Section -->
+    <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+        <div style="margin-bottom: 20px;">
+            <h3 style="margin: 0; font-size: 24px;">Stay Connected</h3>
+            <p style="margin: 5px 0;">Follow us on social media for the latest updates and offers.</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <a href="https://facebook.com" a target="_blank" style="color: white; margin: 0 10px; text-decoration: none;">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://twitter.com" a target="_blank" style="color: white; margin: 0 10px; text-decoration: none;">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://instagram.com" a target="_blank" style="color: white; margin: 0 10px; text-decoration: none;">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://linkedin.com" a target="_blank" style="color: white; margin: 0 10px; text-decoration: none;">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+        <div>
+            <p>Contact us at: <a href="mailto:info@foodingwebsite.com" style="color: #ff5722; text-decoration: none;">info@foodingwebsite.com</a></p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Designed and developed with ❤️ by <strong>Shivan Mishra</strong></p>
+            <p>&copy; 2025 Fooding Website. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Add interactivity to filter options
+        document.querySelectorAll('.filter-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // For this demo, just toggle the active class
+                // In a real implementation, this would filter the restaurant list
+                this.classList.toggle('active');
+                
+                // If it's a sort option, deactivate other sort options
+                if (this.parentElement.querySelector('.filter-label')?.textContent === 'Sort By') {
+                    this.parentElement.querySelectorAll('.filter-option').forEach(opt => {
+                        if (opt !== this) opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        const showMoreBtn = document.getElementById('show-more-btn');
+        const hiddenCities = document.getElementById('hidden-cities');
+        let isExpanded = false;
+        
+        showMoreBtn.addEventListener('click', function() {
+            isExpanded = !isExpanded;
+            
+            if (isExpanded) {
+                hiddenCities.classList.add('show');
+                showMoreBtn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+            } else {
+                hiddenCities.classList.remove('show');
+                showMoreBtn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+            }
+        });
+        
+        // Add click event to all city cards
+        document.querySelectorAll('.city-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const cityName = this.querySelector('h3').textContent.replace('Best Restaurants in ', '');
+                alert(`Showing restaurants for ${cityName}`);
+                // In a real implementation, this would navigate to that city's restaurant page
+            });
+        });
+    </script>
+    
+    <!-- Javascript -->
+    <script src="javascript.js" defer></script>
+
+</body>
+</html>

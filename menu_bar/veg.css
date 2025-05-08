@@ -1,0 +1,192 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4ed;
+    color: #333;
+    background-image: url("/food_img/all_back.jpg");
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center;
+}
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+header p {
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.menu_nav{
+    background-color: transparent;   
+    width: auto; 
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu_nav nav{
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 10px;
+    gap: 35px;
+}
+.menu_nav i {
+    margin-right: 5px;
+    color: #e64a19;
+}
+.menu_nav a {
+    color: white;
+}
+.menu_nav a:hover {
+    text-shadow: 5px 5px 10px black, -5px -5px 10px black;
+}
+
+/* Horizontal Menu Styling */
+.food-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(40px);
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgb(5, 187, 5);;
+}
+.food-menu .menu-item {
+    margin: 0 15px;
+    text-align: center;
+}
+.food-menu .menu-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+    padding: 5px;
+}
+.food-menu .menu-item p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+/* Food items grid */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 80px;
+    padding: 20px;
+}
+
+.food-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.food-item:hover{
+    transform: translateY(-10px);
+}
+
+.food-item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.food-item img:hover{
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 30px black, -10px -10px 30px black;
+}
+
+.food-item h3 {
+    margin: 10px 0;
+}
+
+.food-item p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.order-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: rgb(5, 187, 5);
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity-btn {
+    background-color: #ddd;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.quantity {
+    margin: 0 10px;
+}
+
+/* Fixed Button Styling */
+.fixed-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.fixed-btn:hover {
+    background-color: rgb(5, 187, 5);
+    color: black;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}

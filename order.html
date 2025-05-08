@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Fooding Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
+    <style>
+        /* Custom styles with Tailwind and Bootstrap combination */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        /* Header Styles */
+        .navbar-custom {
+            background-color: #000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .logo-text span {
+            color: #ff6347;
+        }
+
+        .nav-link-custom {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 0.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link-custom:hover {
+            color: #ff6347 !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link-custom i {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-menu-custom {
+            background-color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item-custom {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item-custom:hover {
+            background-color: #ff6347;
+            color: white !important;
+            transform: translateX(5px);
+        }
+
+        /* Main Content Styles */
+        .order-container {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: calc(100vh - 150px);
+            padding: 3rem 0;
+        }
+
+        .order-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .order-header {
+            color: white;
+            font-weight: 600;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .order-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .item-info {
+            flex: 2;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .item-price, .item-quantity, .item-total {
+            flex: 1;
+            color: white;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .item-total {
+            font-weight: 600;
+            color: #ff6347;
+        }
+
+        .order-summary {
+            padding: 1.5rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .grand-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6347;
+            margin: 1.5rem 0;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .empty-cart i {
+            font-size: 3.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .empty-cart h3 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .empty-cart p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Button Styles */
+        .btn-primary-custom {
+            background-color: #ff6347;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #e5533d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary-custom {
+            background-color: transparent;
+            border: 2px solid #6c757d;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: rgba(108, 117, 125, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quantity-value {
+            margin: 0 10px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .remove-item {
+            color: rgba(255, 99, 71, 0.7);
+            cursor: pointer;
+            margin-left: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .remove-item:hover {
+            color: #ff6347;
+            transform: scale(1.1);
+        }
+
+        /* Checkout Form Styles */
+        .checkout-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .form-label {
+            color: white;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control-custom {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-control-custom:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: #ff6347;
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(255, 99, 71, 0.25);
+        }
+
+        .form-control-custom::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-method {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .payment-method:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .payment-method.active {
+            border-color: #ff6347;
+            background-color: rgba(255, 99, 71, 0.1);
+        }
+
+        .payment-method i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6347;
+        }
+
+        .payment-method p {
+            color: white;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Success Message */
+        .order-success {
+            text-align: center;
+            padding: 3rem;
+            display: none;
+        }
+
+        .order-success i {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-success h3 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .order-success p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer Styles */
+        .footer-custom {
+            background-color: #000;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-column {
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: #ff6347;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6347;
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: #ff6347;
+            padding-left: 5px;
+        }
+
+        .subscribe-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.25rem;
+            margin: 0 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #ff6347;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .order-item {
+                flex-wrap: wrap;
+            }
+            .item-info, .item-price, .item-quantity, .item-total {
+                flex: 1 0 50%;
+                margin-bottom: 0.5rem;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-custom {
+                padding: 0.75rem 1rem;
+            }
+            .logo-text {
+                font-size: 1.25rem;
+            }
+            .order-container {
+                padding: 1.5rem 0;
+            }
+            .order-card {
+                border-radius: 0.75rem;
+            }
+            .payment-methods {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Pulse animation for buttons */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="fixed w-full bg-white dark:bg-dark shadow-md z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <i class="fas fa-utensils text-3xl text-primary"></i>
+                        <span class="text-2xl font-bold text-dark dark:text-white">Foodie<span class="text-primary">Delight</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-home"></i> Home</a>
+                    <a href="about.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="contact.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="menu_bar/veg.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium" target="_blank"><i class="fas fa-list"></i> Menu</a>
+                    <a href="order.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-shopping-cart"></i> Order</a>
+                    
+                    <!-- Search Bar -->
+                    <div class="relative ml-4">
+                        <input type="text" placeholder="Search dishes..." class="pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                        <button class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transition-all duration-300">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Home</a>
+                <a href="#menu" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Menu</a>
+                <a href="#features" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Features</a>
+                <a href="#testimonials" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Testimonials</a>
+                <a href="#contact" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Contact</a>
+                
+                <div class="relative">
+                    <input type="text" placeholder="Search dishes..." class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                    <button class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <button class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span>Cart</span>
+                    <span class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">7</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header -->
+    <header class="navbar-custom navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h1 class="logo-text m-0"><i class="fas fa-utensils"></i> Fooding <span>Website</span></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link-custom nav-link" href="home.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link-custom nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-list"></i> Menu
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="navbarDropdownMenu">
+                            <li><a class="dropdown-item-custom dropdown-item" href="menu_bar/veg.html">Vegetarian</a></li>
+                            <li><a class="dropdown-item-custom dropdown-item" href="menu_bar/drink.html">Drink</a></li>
+                            <li><a class="dropdown-item-custom dropdown-item" href="menu_bar/desserts.html">Desserts</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom nav-link" href="order.html"><i class="fas fa-shopping-cart"></i> Order (<span id="cart-count">0</span>)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="order-container">
+        <div class="container animate-fade">
+            <h2 class="text-white mb-4 fw-bold"><i class="fas fa-shopping-cart me-2"></i> My Orders</h2>
+            
+            <div class="order-card">
+                <div id="orders-container">
+                    <!-- Orders will be displayed here -->
+                </div>
+                
+                <div id="checkout-form" class="checkout-form">
+                    <h3 class="text-white mb-4"><i class="fas fa-credit-card me-2"></i> Checkout Information</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control form-control-custom" id="name" placeholder="Enter your full name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control form-control-custom" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control form-control-custom" id="phone" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Delivery Address</label>
+                                <textarea class="form-control form-control-custom" id="address" rows="3" placeholder="Enter your delivery address"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="instructions" class="form-label">Special Instructions</label>
+                                <textarea class="form-control form-control-custom" id="instructions" rows="2" placeholder="Any special instructions?"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-white mt-4 mb-3">Payment Method</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method active" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <p>Credit/Debit Card</p>
+                        </div>
+                        <div class="payment-method" data-method="paypal">
+                            <i class="fab fa-cc-paypal"></i>
+                            <p>PayPal</p>
+                        </div>
+                        <div class="payment-method" data-method="cash">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <p>Cash on Delivery</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mt-4">
+                        <button id="back-to-cart" class="btn btn-secondary-custom">
+                            <i class="fas fa-arrow-left me-2"></i> Back to Cart
+                        </button>
+                        <button id="confirm-order" class="btn btn-primary-custom pulse">
+                            <i class="fas fa-check-circle me-2"></i> Confirm Order
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="order-success" class="order-success">
+                    <i class="fas fa-check-circle floating"></i>
+                    <h3>Order Placed Successfully!</h3>
+                    <p>Thank you for your order. Your food will be prepared with love and delivered to you shortly.</p>
+                    <p class="text-white">Order ID: <span id="order-id" class="fw-bold">#FD12345</span></p>
+                    <p class="text-white">Estimated Delivery Time: <span class="fw-bold">30-45 minutes</span></p>
+                    <a href="home.html" class="btn btn-primary-custom mt-3">
+                        <i class="fas fa-home me-2"></i> Back to Home
+                    </a>
+                </div>
+                
+                <div id="empty-cart-message" class="empty-cart" style="display: none;">
+                    <i class="fas fa-shopping-cart floating"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>You haven't added any delicious items to your cart yet.</p>
+                    <a href="menu_bar/veg.html" class="btn btn-primary-custom pulse">
+                        <i class="fas fa-utensils me-2"></i> Explore Our Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-column">
+                    <h3>Fooding Website</h3>
+                    <p>Serving deliciousness since 2023</p>
+                    <h3>About Us</h3>
+                    <p>Crafted with passion, served with love – bringing authentic flavors to your table since 2014.</p>
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone me-2"></i> +91 9935806722</p>
+                    <p><i class="fas fa-envelope me-2"></i> shivanmishra203@email.com</p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-column">
+                    <h3>Information</h3>
+                    <a href="home.html"><i class="fas fa-chevron-right me-2"></i> Home</a>
+                    <a href="about.html"><i class="fas fa-chevron-right me-2"></i> About</a>
+                    <a href="contact.html"><i class="fas fa-chevron-right me-2"></i> Contact</a>
+                    <a href="menu_bar/veg.html"><i class="fas fa-chevron-right me-2"></i> Menu</a>
+                    <a href="order.html"><i class="fas fa-chevron-right me-2"></i> Order</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-column">
+                    <h3>Helpful Links</h3>
+                    <a href="#"><i class="fas fa-chevron-right me-2"></i> Reviews</a>
+                    <a href="#"><i class="fas fa-chevron-right me-2"></i> Support</a>
+                    <a href="#"><i class="fas fa-chevron-right me-2"></i> Terms & Conditions</a>
+                    <a href="#"><i class="fas fa-chevron-right me-2"></i> Privacy Policy</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-column">
+                    <h3>Subscribe for More Info</h3>
+                    <div class="subscribe">
+                        <input type="email" class="subscribe-input mb-3" placeholder="Enter your email">
+                        <button class="btn btn-primary-custom w-100">Subscribe</button>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom text-center pt-4 mt-4">
+                © 2025 Fooding Website. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Load cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Sample food images for demonstration
+        const foodImages = {
+            "Vegetarian Pizza": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+            "Creamy Vegetarian Pasta": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            "Fresh Garden Salad": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+            "Veggie Burger": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1599&q=80",
+            "Vegetable Stir-Fry": "https://images.unsplash.com/photo-1626700051175-681401c5b64d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            "Hearty Vegetable Soup": "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            "Fruit Smoothie": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Tofu Bowl": "https://images.unsplash.com/photo-1546069901-d5bfd2cbfb1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+            "Cold Coffee": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Mango Smoothie": "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80",
+            "Green Tea": "https://images.unsplash.com/photo-1559173468-9d8c8a0a7426?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Mint Lemonade": "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Strawberry Shake": "https://images.unsplash.com/photo-1577805947697-89e6c164f220?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Iced Mocha": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Orange Juice": "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Blueberry Smoothie": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Chocolate Cake": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1589&q=80",
+            "Strawberry Tart": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Macarons": "https://images.unsplash.com/photo-1558326567-98ae2405596b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1586&q=80",
+            "Ice Cream Sundae": "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Cheesecake": "https://images.unsplash.com/photo-1578775887804-699de7086ff9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+            "Fruit Salad": "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+        };
+        
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        
+        // Display orders
+        function displayOrders() {
+            const ordersContainer = document.getElementById('orders-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const checkoutForm = document.getElementById('checkout-form');
+            const orderSuccess = document.getElementById('order-success');
+            
+            if (cart.length === 0) {
+                ordersContainer.style.display = 'none';
+                checkoutForm.style.display = 'none';
+                orderSuccess.style.display = 'none';
+                emptyCartMessage.style.display = 'block';
+                return;
+            }
+            
+            ordersContainer.style.display = 'block';
+            checkoutForm.style.display = 'none';
+            orderSuccess.style.display = 'none';
+            emptyCartMessage.style.display = 'none';
+            
+            let html = `
+                <div class="order-header d-flex">
+                    <div class="item-info">Item</div>
+                    <div class="item-price">Price</div>
+                    <div class="item-quantity">Qty</div>
+                    <div class="item-total">Total</div>
+                </div>
+            `;
+            
+            let subtotal = 0;
+            let deliveryFee = 49;
+            let taxRate = 0.05;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                // Use sample image if available, otherwise use a placeholder
+                const itemImage = foodImages[item.name] || 'https://via.placeholder.com/50';
+                
+                html += `
+                    <div class="order-item">
+                        <div class="item-info">
+                            <img src="${itemImage}" alt="${item.name}" class="item-img">
+                            ${item.name}
+                            <span class="remove-item ms-3" data-index="${index}">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </div>
+                        <div class="item-price">₹${item.price.toFixed(2)}</div>
+                        <div class="item-quantity">
+                            <div class="quantity-control">
+                                <button class="quantity-btn decrease" data-index="${index}">-</button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-btn increase" data-index="${index}">+</button>
+                            </div>
+                        </div>
+                        <div class="item-total">₹${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+            
+            const tax = subtotal * taxRate;
+            const grandTotal = subtotal + deliveryFee + tax;
+            
+            html += `
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>₹${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee:</span>
+                        <span>₹${deliveryFee.toFixed(2)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (5%):</span>
+                        <span>₹${tax.toFixed(2)}</span>
+                    </div>
+                    <div class="grand-total">
+                        <span>Grand Total:</span>
+                        <span>₹${grandTotal.toFixed(2)}</span>
+                    </div>
+                    <div class="d-flex justify-content-end gap-3">
+                        <button id="place-order-btn" class="btn btn-primary-custom">
+                            <i class="fas fa-credit-card me-2"></i> Proceed to Checkout
+                        </button>
+                        <button id="clear-cart-btn" class="btn btn-secondary-custom">
+                            <i class="fas fa-trash-alt me-2"></i> Clear Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            ordersContainer.innerHTML = html;
+            
+            // Add event listeners for buttons
+            document.getElementById('place-order-btn')?.addEventListener('click', showCheckoutForm);
+            document.getElementById('clear-cart-btn')?.addEventListener('click', clearCart);
+            
+            // Add event listeners for quantity controls
+            document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    increaseQuantity(index);
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    decreaseQuantity(index);
+                });
+            });
+            
+            // Add event listeners for remove item buttons
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    removeItem(index);
+                });
+            });
+        }
+        
+        // Show checkout form
+        function showCheckoutForm() {
+            document.getElementById('orders-container').style.display = 'none';
+            document.getElementById('checkout-form').style.display = 'block';
+            
+            // Add event listeners for payment methods
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Add event listener for back to cart button
+            document.getElementById('back-to-cart').addEventListener('click', function() {
+                document.getElementById('orders-container').style.display = 'block';
+                document.getElementById('checkout-form').style.display = 'none';
+            });
+            
+            // Add event listener for confirm order button
+            document.getElementById('confirm-order').addEventListener('click', placeOrder);
+        }
+        
+        // Place order function
+        function placeOrder() {
+            // Validate form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            
+            if (!name || !email || !phone || !address) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Generate random order ID
+            const orderId = 'FD' + Math.floor(10000 + Math.random() * 90000);
+            
+            // Show success message
+            document.getElementById('checkout-form').style.display = 'none';
+            document.getElementById('order-success').style.display = 'block';
+            document.getElementById('order-id').textContent = '#' + orderId;
+            
+            // Clear cart
+                        // Clear cart
+                        cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+        
+        // Clear cart function
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                displayOrders();
+            }
+        }
+        
+        // Increase quantity function
+        function increaseQuantity(index) {
+            cart[index].quantity++;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            displayOrders();
+        }
+        
+        // Decrease quantity function
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                displayOrders();
+            } else {
+                removeItem(index);
+            }
+        }
+        
+        // Remove item function
+        function removeItem(index) {
+            if (confirm('Remove this item from your cart?')) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                displayOrders();
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            displayOrders();
+            
+            // Generate sample cart items if empty (for demo purposes)
+            if (cart.length === 0) {
+                // Uncomment the following lines to add sample items for demonstration
+                /*
+                cart = [
+                    { name: "Margherita Pizza", price: 299, quantity: 1 },
+                    { name: "Chicken Burger", price: 199, quantity: 2 },
+                    { name: "Iced Coffee", price: 99, quantity: 1 }
+                ];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                displayOrders();
+                */
+            }
+        });
+    </script>
+</body>
+</html>

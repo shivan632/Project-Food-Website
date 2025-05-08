@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #ff5252;
+}
+        .food-menu .menu-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Taste the Best <span>Food</span> in Town!</h1>
+            <p>Order your favorite meals online and get them delivered fast.</p>
+            <a href="#menu" class="btn">Order Now</a>
+        </div>
+    </section>
+    <div class="food-menu">
+        <div class="menu-item">
+            <img src="\food_img\image copy 27.png" alt="Salad">
+            <p>Fresh Garden Salad</p>
+        </div>
+    </div>
+    <script>
+                // Load cart from localStorage
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        
+        // Display orders
+        function displayOrders() {
+            const ordersContainer = document.getElementById('orders-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            
+            if (cart.length === 0) {
+                ordersContainer.style.display = 'none';
+                emptyCartMessage.style.display = 'block';
+                return;
+            }
+            
+            ordersContainer.style.display = 'block';
+            emptyCartMessage.style.display = 'none';
+            
+            let html = `
+                <div class="order-item" style="font-weight: bold;">
+                    <div class="item-info">Item</div>
+                    <div class="item-image">Image</div>
+                    <div class="item-price">Price</div>
+                    <div class="item-quantity">Qty</div>
+                    <div class="item-total">Total</div>
+                </div>
+            `;
+            
+            let grandTotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                grandTotal += itemTotal;
+                
+                html += `
+                    <div class="order-item">
+                        <div class="item-info">${item.name}</div>
+                        <div class="item-image">${item.image}</div>
+                        <div class="item-price">₹${item.price.toFixed(2)}</div>
+                        <div class="item-quantity">${item.quantity}</div>
+                        <div class="item-total">₹${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                <div class="order-summary">
+                    <div class="grand-total">Grand Total: ₹${grandTotal.toFixed(2)}</div>
+                    <button id="place-order-btn" class="btn" style="margin-top: 10px;">Place Order</button>
+                    <button id="clear-cart-btn" class="btn" style="margin-top: 10px; background-color: #666; margin-left: 10px;">Clear Cart</button>
+                </div>
+            `;
+            
+            ordersContainer.innerHTML = html;
+            
+            // Add event listeners for buttons
+            document.getElementById('place-order-btn')?.addEventListener('click', placeOrder);
+            document.getElementById('clear-cart-btn')?.addEventListener('click', clearCart);
+        }
+        
+        // Place order function
+        function placeOrder() {
+            alert('Order placed successfully! Thank you for your purchase.');
+            clearCart();
+        }
+        
+        // Clear cart function
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            displayOrders();
+        }
+        
+        // Initialize page
+        updateCartCount();
+        displayOrders();
+    </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refreshing Drinks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="drink.css" media="screen" type="text/css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-coffee"></i> Refreshing Drinks</h1>
+        <p>Cool down with our collection of refreshing beverages!</p>
+        <div class="menu_nav">
+            <nav>
+                <a href="veg.html"><i class="fas fa-carrot"></i>Vegetarian Food</a>
+                <a href="drink.html"><i class="fas fa-coffee"></i>Refreshing Drinks</a>
+                <a href="desserts.html"><i class="fas fa-ice-cream"></i></i> Delicious Desserts</a>
+            </nav>
+        </div>
+    </header>
+
+   <!-- Horizontal Food Menu -->
+   <div class="food-menu">
+    <div class="menu-item">
+        <img src="\food_img\image copy 13.png" alt="Salad">
+        <p>Cold Coffee</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 14.png" alt="Pasta">
+        <p>Mango Smoothie</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 15.png" alt="Pizza">
+        <p>Green Tea</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 16.png" alt="Burger">
+        <p>Mint Lemonade</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 17.png" alt="Stir Fry">
+        <p>Strawberry Shake</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 18.png" alt="Soup">
+        <p>Iced Mocha</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 19.png" alt="Smoothie">
+        <p>Orange Juice</p>
+    </div>
+    <div class="menu-item">
+        <img src="\food_img\image copy 20.png" alt="Tofu Bowl">
+        <p>Blueberry Smoothie</p>
+    </div>
+</div>
+
+    <!-- Food Items Section -->
+    <div class="container my-5">
+        <div class="row">
+            <section style="padding: 20px; text-align: center; max-width: 1000px; margin: 0 auto;">
+                <div class="food-grid" style="display: grid; grid-template-columns: repeat(4, minmax(200px, 1fr)); gap: 20px;">
+                    <!-- Food Item 1 -->
+                    <div class="food-item" data-id="1" data-name="Cold Coffee" data-price="50">
+                        <img src="\food_img\image copy 13.png" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-mug-hot"></i>Cold Coffee</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Chilled coffee with a perfect blend of milk and cream.</p>
+                        <p class="text-success"><strong>Price: ₹50.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+                    
+                    <!-- Food Item 2 -->
+                    <div class="food-item" data-id="2" data-name="Mango Smoothie" data-price="100">
+                        <img src="\food_img\image copy 14.png" alt="Burger" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-blender"></i> Mango Smoothie</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">A creamy smoothie made from ripe mangoes.</p>
+                        <p class="text-success"><strong>Price: ₹100.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+                    
+                    <!-- Food Item 3 -->
+                    <div class="food-item" data-id="3" data-name="Green Tea" data-price="50">
+                        <img src="\food_img\image copy 15.png" alt="Pasta" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-leaf"></i> Green Tea</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">A hot cup of antioxidant-rich green tea.</p>
+                        <p class="text-success"><strong>Price: ₹50.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+                    
+                    <!-- Food Item 4 -->
+                    <div class="food-item" data-id="4" data-name="Mint Lemonade" data-price="30">
+                        <img src="\food_img\image copy 16.png" alt="Salad" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-tint"></i> Mint Lemonade</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">A refreshing blend of lemon and fresh mint leaves.</p>
+                        <p class="text-success"><strong>Price: ₹30.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+            
+                    <!-- Food Item 5 -->
+                    <div class="food-item" data-id="5" data-name="Strawberry Shake" data-price="80">
+                        <img src="\food_img\image copy 17.png" alt="Vegetable Soup" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i> Strawberry Shake</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Sweet and creamy strawberry milkshake.</p>
+                        <p class="text-success"><strong>Price: ₹80.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+            
+                    <!-- Food Item 6 -->
+                    <div class="food-item" data-id="6" data-name="Iced Mocha" data-price="90">
+                        <img src="\food_img\image copy 18.png" alt="Fruit Smoothie" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-coffee"></i> Iced Mocha</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Rich mocha with ice for a chilled treat.</p>
+                        <p class="text-success"><strong>Price: ₹90.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+            
+                    <!-- Food Item 7 -->
+                    <div class="food-item" data-id="7" data-name="Orange Juice" data-price="40">
+                        <img src="\food_img\image copy 19.png" alt="Veggie Wrap" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-tint"></i> Orange Juice</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Freshly squeezed orange juice, full of vitamins.</p>
+                        <p class="text-success"><strong>Price: ₹40.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+            
+                    <!-- Food Item 8 -->
+                    <div class="food-item" data-id="8" data-name=" Blueberry Smoothie" data-price="200">
+                        <img src="\food_img\image copy 20.png" alt="Cheese Sandwich" style="height: 120px; width: 100%; object-fit: cover;">
+                        <h5 class="card-title"><i class="fas fa-blender"></i> Blueberry Smoothie</h5>
+                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Healthy and delicious blueberry smoothie.</p>
+                        <p class="text-success"><strong>Price: ₹200.00</strong></p>
+                        <div class="quantity-controls" style="margin-bottom: 10px;">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
+                    </div>
+                </div>
+            </section>            
+        </div>
+    </div>
+
+    <a href="/order.html" class="fixed-btn"><i class="fas fa-plus"></i> Order</a>
+
+    <footer>
+        <p>&copy; 2025 Vegetarian Delights. All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:info@vegdelights.com">info@vegdelights.com</a></p>
+        <p>Follow us on 
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>, 
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>, and 
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>.
+        </p>
+    </footer>
+
+    <script>
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Update cart count display
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        
+        // Add to cart function
+        function addToCart(itemId, itemName, itemPrice, quantity) {
+            const existingItem = cart.find(item => item.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: itemId,
+                    name: itemName,
+                    price: itemPrice,
+                    quantity: quantity
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(`${quantity} ${itemName}(s) added to cart!`);
+        }
+        
+        // Event delegation for order buttons and quantity controls
+        document.addEventListener('click', function(e) {
+            // Order button click
+            if (e.target.classList.contains('order-btn')) {
+                const foodItem = e.target.closest('.food-item');
+                const id = foodItem.dataset.id;
+                const name = foodItem.dataset.name;
+                const price = parseFloat(foodItem.dataset.price);
+                const quantity = parseInt(foodItem.querySelector('.quantity').textContent);
+                
+                addToCart(id, name, price, quantity);
+            }
+            
+            // Plus button click
+            if (e.target.classList.contains('plus')) {
+                const quantityElement = e.target.parentElement.querySelector('.quantity');
+                quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+            }
+            
+            // Minus button click
+            if (e.target.classList.contains('minus')) {
+                const quantityElement = e.target.parentElement.querySelector('.quantity');
+                const currentQuantity = parseInt(quantityElement.textContent);
+                if (currentQuantity > 1) {
+                    quantityElement.textContent = currentQuantity - 1;
+                }
+            }
+        });
+        
+        // Initialize cart count on page load
+        updateCartCount();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
