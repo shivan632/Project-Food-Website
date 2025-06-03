@@ -1,523 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Foodie Delight</title>
-    <meta name="description" content="Discover the story behind Foodie Delight - our passion for vegetarian cuisine, commitment to quality, and dedication to exceptional service.">
-    
-    <!-- Css Link -->
-     <link rel="stylesheet" href="about.css" media="screen" type="text/css">
-    <!-- Favicon -->
-    <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FF6B6B',
-                        secondary: '#4ECDC4',
-                        accent: '#FFE66D',
-                        dark: '#292F36',
-                        light: '#F7FFF7',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'pulse-slow': 'pulse 3s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us | Foodie Delight</title>
+        <meta name="description"
+            content="Discover the story behind Foodie Delight - our passion for vegetarian cuisine, commitment to quality, and dedication to exceptional service.">
+
+        <!-- Css Link -->
+        <link rel="stylesheet" href="about.css" media="screen" type="text/css">
+        <!-- Favicon -->
+        <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#FF6B6B',
+                            secondary: '#4ECDC4',
+                            accent: '#FFE66D',
+                            dark: '#292F36',
+                            light: '#F7FFF7',
                         },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        fontFamily: {
+                            sans: ['Poppins', 'sans-serif'],
+                            serif: ['Playfair Display', 'serif'],
                         },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
+                        animation: {
+                            'fade-in': 'fadeIn 0.5s ease-in',
+                            'slide-up': 'slideUp 0.5s ease-out',
+                            'pulse-slow': 'pulse 3s infinite',
+                            'float': 'float 6s ease-in-out infinite',
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: '0' },
+                                '100%': { opacity: '1' },
+                            },
+                            slideUp: {
+                                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                                '100%': { transform: 'translateY(0)', opacity: '1' },
+                            },
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0)' },
+                                '50%': { transform: 'translateY(-20px)' },
+                            }
+                        },
                     },
                 },
-            },
-        }
-    </script>
-    
-    <!-- Lordicon for 3D icons -->
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-</head>
-<body class="font-sans bg-gray-50 transition-colors duration-300 dark:bg-gray-900">
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
-        <div class="loading-spinner mb-4"></div>
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Loading Foodie Delight...</h2>
-    </div>
-    
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" class="scroll-to-top bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-all">
-        <i class="fas fa-arrow-up text-xl"></i>
-    </button>
-    
-    <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" class="fixed bottom-4 left-4 bg-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-50 hover:bg-gray-700 transition-all">
-        <i class="fas fa-moon text-xl" id="dark-mode-icon"></i>
-    </button>
-    
-    <!-- Navigation Bar -->
-    <header class="fixed w-full bg-white dark:bg-dark shadow-md z-40 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="#" class="flex items-center space-x-2">
-                        <i class="fas fa-utensils text-3xl text-primary"></i>
-                        <span class="text-2xl font-bold text-dark dark:text-white">Foodie<span class="text-primary">Delight</span></span>
-                    </a>
+            }
+        </script>
+
+        <!-- Lordicon for 3D icons -->
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    </head>
+
+    <body class="font-sans bg-gray-50 transition-colors duration-300 dark:bg-gray-900">
+        <!-- Loading Screen -->
+        <div id="loading-screen"
+            class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+            <div class="loading-spinner mb-4"></div>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Loading Foodie Delight...</h2>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button id="scroll-to-top"
+            class="scroll-to-top bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-all">
+            <i class="fas fa-arrow-up text-xl"></i>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button id="dark-mode-toggle"
+            class="fixed bottom-4 left-4 bg-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-50 hover:bg-gray-700 transition-all">
+            <i class="fas fa-moon text-xl" id="dark-mode-icon"></i>
+        </button>
+
+        <!-- Navigation Bar -->
+        <header class="fixed w-full bg-white dark:bg-dark shadow-md z-40 transition-all duration-300" id="navbar">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex justify-between items-center">
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <a href="#" class="flex items-center space-x-2">
+                            <i class="fas fa-utensils text-3xl text-primary"></i>
+                            <span class="text-2xl font-bold text-dark dark:text-white">Foodie<span
+                                    class="text-primary">Delight</span></span>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="home.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-home"></i> Home</a>
+                        <a href="about.html" class="text-primary font-medium"><i class="fas fa-info-circle"></i>
+                            About</a>
+                        <a href="contact.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-envelope"></i> Contact</a>
+                        <a href="menu_bar/veg.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"
+                            target="_blank"><i class="fas fa-list"></i> Menu</a>
+                        <a href="order.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-shopping-cart"></i> Order</a>
+
+                        <!-- Search Bar -->
+                        <div class="relative ml-4">
+                            <input type="text" placeholder="Search dishes..."
+                                class="pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                            <button
+                                class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+
+                        <!-- Cart Button -->
+                        <a href="order.html"
+                            class="relative ml-4 p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span
+                                class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                        </a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
-                
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="home.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-home"></i> Home</a>
-                    <a href="about.html" class="text-primary font-medium"><i class="fas fa-info-circle"></i> About</a>
-                    <a href="contact.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-envelope"></i> Contact</a>
-                    <a href="menu_bar/veg.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium" target="_blank"><i class="fas fa-list"></i> Menu</a>
-                    <a href="order.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-shopping-cart"></i> Order</a>
-                    
-                    <!-- Search Bar -->
-                    <div class="relative ml-4">
-                        <input type="text" placeholder="Search dishes..." class="pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                        <button class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu"
+                class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transition-all duration-300">
+                <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                    <a href="home.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-home mr-2"></i> Home</a>
+                    <a href="about.html" class="text-primary font-medium py-2"><i class="fas fa-info-circle mr-2"></i>
+                        About</a>
+                    <a href="contact.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-envelope mr-2"></i> Contact</a>
+                    <a href="menu_bar/veg.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-list mr-2"></i> Menu</a>
+                    <a href="order.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-shopping-cart mr-2"></i> Order</a>
+
+                    <div class="relative">
+                        <input type="text" placeholder="Search dishes..."
+                            class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                        <button
+                            class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-                    
-                    <!-- Cart Button -->
-                    <a href="order.html" class="relative ml-4 p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+
+                    <a href="order.html"
+                        class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        <span>Cart</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
                     </a>
-                </nav>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                </div>
             </div>
-        </div>
-        
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transition-all duration-300">
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-                <a href="home.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i class="fas fa-home mr-2"></i> Home</a>
-                <a href="about.html" class="text-primary font-medium py-2"><i class="fas fa-info-circle mr-2"></i> About</a>
-                <a href="contact.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i class="fas fa-envelope mr-2"></i> Contact</a>
-                <a href="menu_bar/veg.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i class="fas fa-list mr-2"></i> Menu</a>
-                <a href="order.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i class="fas fa-shopping-cart mr-2"></i> Order</a>
-                
-                <div class="relative">
-                    <input type="text" placeholder="Search dishes..." class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                    <button class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
-                        <i class="fas fa-search"></i>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 hero-gradient text-white relative overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-black opacity-40"></div>
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                    alt="Restaurant kitchen" class="w-full h-full object-cover parallax">
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 animate-fade-in">Our <span
+                        class="text-accent">Story</span></h1>
+                <p class="text-xl max-w-3xl mx-auto mb-8 animate-fade-in">Discover the passion, people, and principles
+                    behind Foodie Delight's journey to culinary excellence.</p>
+                <div class="animate-slide-up">
+                    <a href="#our-values"
+                        class="inline-block bg-accent text-dark font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors ripple mr-4">
+                        Our Values
+                    </a>
+                    <a href="#our-team"
+                        class="inline-block bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-dark transition-colors ripple">
+                        Meet Our Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 animate-fade-in">
+                        <lord-icon src="https://cdn.lordicon.com/wxnxiano.json" trigger="loop"
+                            colors="primary:#ff6b6b,secondary:#4ecdc4" style="width:100%;height:400px">
+
+                        </lord-icon>
+                    </div>
+                    <div class="md:w-1/2 animate-slide-up">
+                        <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6 dark:text-white">From Humble <span
+                                class="text-gradient">Beginnings</span></h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">Founded in 2015 by chef and nutritionist Sarah
+                            Johnson, Foodie Delight began as a small farmers' market stall with a simple mission: to
+                            make healthy vegetarian food irresistibly delicious.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">What started as a passion project quickly grew
+                            into a beloved local eatery, and today we're proud to serve thousands of happy customers
+                            across multiple locations.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
+                                <h3 class="font-bold text-lg text-primary mb-2">2015</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Founded at local farmers market</p>
+                            </div>
+                            <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
+                                <h3 class="font-bold text-lg text-primary mb-2">2017</h3>
+                                <p class="text-gray-600 dark:text-gray-300">First brick-and-mortar location</p>
+                            </div>
+                            <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
+                                <h3 class="font-bold text-lg text-primary mb-2">2020</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Launched delivery service</p>
+                            </div>
+                            <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
+                                <h3 class="font-bold text-lg text-primary mb-2">2023</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Expanded to 5 locations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section id="our-values" class="py-16 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl text-white md:text-4xl font-bold font-serif mb-4">Our Core <span
+                            class="text-gradient">Values</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">The principles that guide
+                        everything we do at Foodie Delight</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Value 1 -->
+                    <div
+                        class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div
+                            class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
+                            <lord-icon src="https://cdn.lordicon.com/wloilxuq.json" trigger="hover"
+                                colors="primary:#ff6b6b" style="width:50px;height:50px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Quality Ingredients</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">We source only the freshest,
+                            highest-quality ingredients from trusted local suppliers who share our commitment to
+                            sustainability.</p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div
+                        class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div
+                            class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
+                            <lord-icon src="https://cdn.lordicon.com/sbiheqdr.json" trigger="hover"
+                                colors="primary:#ff6b6b" style="width:50px;height:50px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Innovative Flavors</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">Our chefs constantly experiment with
+                            global flavors to create exciting new vegetarian dishes that surprise and delight.</p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div
+                        class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div
+                            class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
+                            <lord-icon src="https://cdn.lordicon.com/iiixgoqp.json" trigger="hover"
+                                colors="primary:#ff6b6b" style="width:50px;height:50px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Community Focus</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">We believe in giving back through food
+                            donations, cooking classes, and supporting local farmers and producers.</p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div
+                        class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div
+                            class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
+                            <lord-icon src="https://cdn.lordicon.com/hbvgknxo.json" trigger="hover"
+                                colors="primary:#ff6b6b" style="width:50px;height:50px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Sustainability</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">From compostable packaging to
+                            energy-efficient kitchens, we minimize our environmental impact at every step.</p>
+                    </div>
+
+                    <!-- Value 5 -->
+                    <div
+                        class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div
+                            class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
+                            <lord-icon src="https://cdn.lordicon.com/urhcgqxz.json" trigger="hover"
+                                colors="primary:#ff6b6b" style="width:50px;height:50px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Exceptional Service</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">Our friendly staff goes above and beyond
+                            to ensure every customer has a memorable dining experience.</p>
+                    </div>
+
+                    <!-- Value 6 -->
+                    <div
+                        class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div
+                            class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
+                            <lord-icon src="https://cdn.lordicon.com/elkhjhci.json" trigger="hover"
+                                colors="primary:#ff6b6b" style="width:50px;height:50px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Continuous Improvement</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">We constantly refine our recipes and
+                            processes based on customer feedback and culinary innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 bg-primary text-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
+                        <div class="text-4xl font-bold mb-2 counter" data-target="10000">0</div>
+                        <div class="text-lg">Happy Customers</div>
+                    </div>
+                    <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
+                        <div class="text-4xl font-bold mb-2 counter" data-target="150">0</div>
+                        <div class="text-lg">Menu Items</div>
+                    </div>
+                    <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
+                        <div class="text-4xl font-bold mb-2 counter" data-target="5">0</div>
+                        <div class="text-lg">Locations</div>
+                    </div>
+                    <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
+                        <div class="text-4xl font-bold mb-2 counter" data-target="98">0</div>
+                        <div class="text-lg">% Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section id="our-team" class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl text-white md:text-4xl font-bold font-serif mb-4">Meet Our <span
+                            class="text-gradient">Team</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">The talented individuals who
+                        bring Foodie Delight to life every day</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team Member 1 -->
+                    <div
+                        class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Sarah Johnson"
+                                class="w-full h-full object-cover transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold dark:text-white">Sarah Johnson</h3>
+                            <p class="text-primary font-medium mb-3">Founder & Head Chef</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Nutritionist turned chef with a passion for
+                                creating healthy, flavorful vegetarian cuisine.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div
+                        class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                                alt="Michael Chen" class="w-full h-full object-cover transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold dark:text-white">Michael Chen</h3>
+                            <p class="text-primary font-medium mb-3">Executive Chef</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Specializes in Asian fusion vegetarian
+                                dishes with 15 years of culinary experience.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div
+                        class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
+                                alt="Priya Patel" class="w-full h-full object-cover transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold dark:text-white">Priya Patel</h3>
+                            <p class="text-primary font-medium mb-3">Pastry Chef</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Creates our delicious desserts with a focus
+                                on natural sweeteners and innovative flavors.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div
+                        class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
+                                alt="Emily Rodriguez"
+                                class="w-full h-full object-cover transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold dark:text-white">Emily Rodriguez</h3>
+                            <p class="text-primary font-medium mb-3">Customer Experience Manager</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Ensures every guest receives exceptional
+                                service and leaves with a smile.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl text-white md:text-4xl font-bold font-serif mb-4">What Our <span
+                            class="text-gradient">Customers Say</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Don't just take our word for
+                        it - hear from our satisfied customers</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md relative">
+                        <div
+                            class="absolute -top-6 -left-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Lisa Thompson"
+                                    class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold dark:text-white">Lisa Thompson</h4>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"The vegetarian pasta is absolutely delicious! I
+                            order it at least twice a week. The delivery is always fast and the food arrives hot. Highly
+                            recommend!"</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md relative">
+                        <div
+                            class="absolute -top-6 -left-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Kim"
+                                    class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold dark:text-white">David Kim</h4>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"The superfood salad is my go-to lunch. Fresh
+                            ingredients and generous portions. The app makes ordering so easy, and I love the rewards
+                            program!"</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md relative">
+                        <div
+                            class="absolute -top-6 -left-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria Garcia"
+                                    class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold dark:text-white">Maria Garcia</h4>
+                                    <div class="flex">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">"The French toast is to die for! Perfectly sweet and
+                            fluffy. I also love their cold brew coffee. Great combination for a weekend brunch at home."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mt-12">
+                    <button
+                        class="px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-secondary transition-colors ripple">
+                        Read More Reviews
                     </button>
                 </div>
-                
-                <a href="order.html" class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
-                    <i class="fas fa-shopping-cart mr-2"></i>
-                    <span>Cart</span>
-                    <span class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
-                </a>
             </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 hero-gradient text-white relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restaurant kitchen" class="w-full h-full object-cover parallax">
-        </div>
-        
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 animate-fade-in">Our <span class="text-accent">Story</span></h1>
-            <p class="text-xl max-w-3xl mx-auto mb-8 animate-fade-in">Discover the passion, people, and principles behind Foodie Delight's journey to culinary excellence.</p>
-            <div class="animate-slide-up">
-                <a href="#our-values" class="inline-block bg-accent text-dark font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors ripple mr-4">
-                    Our Values
-                </a>
-                <a href="#our-team" class="inline-block bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-dark transition-colors ripple">
-                    Meet Our Team
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section class="py-16 bg-white dark:bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2 animate-fade-in">
-                    <lord-icon
-                        src="https://cdn.lordicon.com/wxnxiano.json"
-                        trigger="loop"
-                        colors="primary:#ff6b6b,secondary:#4ecdc4"
-                        style="width:100%;height:400px"
-                        >
-
-                    </lord-icon>
-                </div>
-                <div class="md:w-1/2 animate-slide-up">
-                    <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6 dark:text-white">From Humble <span class="text-gradient">Beginnings</span></h2>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6">Founded in 2015 by chef and nutritionist Sarah Johnson, Foodie Delight began as a small farmers' market stall with a simple mission: to make healthy vegetarian food irresistibly delicious.</p>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6">What started as a passion project quickly grew into a beloved local eatery, and today we're proud to serve thousands of happy customers across multiple locations.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
-                            <h3 class="font-bold text-lg text-primary mb-2">2015</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Founded at local farmers market</p>
-                        </div>
-                        <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
-                            <h3 class="font-bold text-lg text-primary mb-2">2017</h3>
-                            <p class="text-gray-600 dark:text-gray-300">First brick-and-mortar location</p>
-                        </div>
-                        <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
-                            <h3 class="font-bold text-lg text-primary mb-2">2020</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Launched delivery service</p>
-                        </div>
-                        <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg flex-1 min-w-[200px]">
-                            <h3 class="font-bold text-lg text-primary mb-2">2023</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Expanded to 5 locations</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Values Section -->
-    <section id="our-values" class="py-16 bg-gray-50 dark:bg-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl text-white md:text-4xl font-bold font-serif mb-4">Our Core <span class="text-gradient">Values</span></h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">The principles that guide everything we do at Foodie Delight</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Value 1 -->
-                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/wloilxuq.json"
-                            trigger="hover"
-                            colors="primary:#ff6b6b"
-                            style="width:50px;height:50px">
-                        </lord-icon>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Quality Ingredients</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-center">We source only the freshest, highest-quality ingredients from trusted local suppliers who share our commitment to sustainability.</p>
-                </div>
-                
-                <!-- Value 2 -->
-                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/sbiheqdr.json"
-                            trigger="hover"
-                            colors="primary:#ff6b6b"
-                            style="width:50px;height:50px">
-                        </lord-icon>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Innovative Flavors</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-center">Our chefs constantly experiment with global flavors to create exciting new vegetarian dishes that surprise and delight.</p>
-                </div>
-                
-                <!-- Value 3 -->
-                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/iiixgoqp.json"
-                            trigger="hover"
-                            colors="primary:#ff6b6b"
-                            style="width:50px;height:50px">
-                        </lord-icon>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Community Focus</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-center">We believe in giving back through food donations, cooking classes, and supporting local farmers and producers.</p>
-                </div>
-                
-                <!-- Value 4 -->
-                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/hbvgknxo.json"
-                            trigger="hover"
-                            colors="primary:#ff6b6b"
-                            style="width:50px;height:50px">
-                        </lord-icon>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Sustainability</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-center">From compostable packaging to energy-efficient kitchens, we minimize our environmental impact at every step.</p>
-                </div>
-                
-                <!-- Value 5 -->
-                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/urhcgqxz.json"
-                            trigger="hover"
-                            colors="primary:#ff6b6b"
-                            style="width:50px;height:50px">
-                        </lord-icon>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Exceptional Service</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-center">Our friendly staff goes above and beyond to ensure every customer has a memorable dining experience.</p>
-                </div>
-                
-                <!-- Value 6 -->
-                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="feature-icon bg-primary bg-opacity-10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/elkhjhci.json"
-                            trigger="hover"
-                            colors="primary:#ff6b6b"
-                            style="width:50px;height:50px">
-                        </lord-icon>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Continuous Improvement</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-center">We constantly refine our recipes and processes based on customer feedback and culinary innovation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 bg-primary text-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2 counter" data-target="10000">0</div>
-                    <div class="text-lg">Happy Customers</div>
-                </div>
-                <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2 counter" data-target="150">0</div>
-                    <div class="text-lg">Menu Items</div>
-                </div>
-                <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2 counter" data-target="5">0</div>
-                    <div class="text-lg">Locations</div>
-                </div>
-                <div class="stats-item bg-white bg-opacity-20 p-6 rounded-xl text-center backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2 counter" data-target="98">0</div>
-                    <div class="text-lg">% Satisfaction</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Team Section -->
-    <section id="our-team" class="py-16 bg-white dark:bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl text-white md:text-4xl font-bold font-serif mb-4">Meet Our <span class="text-gradient">Team</span></h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">The talented individuals who bring Foodie Delight to life every day</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team Member 1 -->
-                <div class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sarah Johnson" class="w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold dark:text-white">Sarah Johnson</h3>
-                        <p class="text-primary font-medium mb-3">Founder & Head Chef</p>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Nutritionist turned chef with a passion for creating healthy, flavorful vegetarian cuisine.</p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Michael Chen" class="w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold dark:text-white">Michael Chen</h3>
-                        <p class="text-primary font-medium mb-3">Executive Chef</p>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Specializes in Asian fusion vegetarian dishes with 15 years of culinary experience.</p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Priya Patel" class="w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold dark:text-white">Priya Patel</h3>
-                        <p class="text-primary font-medium mb-3">Pastry Chef</p>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Creates our delicious desserts with a focus on natural sweeteners and innovative flavors.</p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Team Member 4 -->
-                <div class="team-card bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Emily Rodriguez" class="w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold dark:text-white">Emily Rodriguez</h3>
-                        <p class="text-primary font-medium mb-3">Customer Experience Manager</p>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Ensures every guest receives exceptional service and leaves with a smile.</p>
-                        <div class="flex space-x-3">
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl text-white md:text-4xl font-bold font-serif mb-4">What Our <span class="text-gradient">Customers Say</span></h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md relative">
-                    <div class="absolute -top-6 -left-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center">
-                        <i class="fas fa-quote-left text-xl"></i>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Lisa Thompson" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold dark:text-white">Lisa Thompson</h4>
-                                <div class="flex">
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300">"The vegetarian pasta is absolutely delicious! I order it at least twice a week. The delivery is always fast and the food arrives hot. Highly recommend!"</p>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md relative">
-                    <div class="absolute -top-6 -left-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center">
-                        <i class="fas fa-quote-left text-xl"></i>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Kim" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold dark:text-white">David Kim</h4>
-                                <div class="flex">
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300">"The superfood salad is my go-to lunch. Fresh ingredients and generous portions. The app makes ordering so easy, and I love the rewards program!"</p>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-md relative">
-                    <div class="absolute -top-6 -left-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center">
-                        <i class="fas fa-quote-left text-xl"></i>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria Garcia" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold dark:text-white">Maria Garcia</h4>
-                                <div class="flex">
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star-half-alt text-yellow-400"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300">"The French toast is to die for! Perfectly sweet and fluffy. I also love their cold brew coffee. Great combination for a weekend brunch at home."</p>
-                </div>
-            </div>
-            
-            <div class="flex justify-center mt-12">
-                <button class="px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-secondary transition-colors ripple">
-                    Read More Reviews
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Footer Section -->
         <footer class="bg-dark text-white py-12">
@@ -526,9 +602,11 @@
                     <div class="md:col-span-2">
                         <a href="#" class="flex items-center space-x-2 mb-6">
                             <i class="fas fa-utensils text-3xl text-primary"></i>
-                            <span class="text-2xl font-bold text-white">Foodie<span class="text-primary">Delight</span></span>
+                            <span class="text-2xl font-bold text-white">Foodie<span
+                                    class="text-primary">Delight</span></span>
                         </a>
-                        <p class="text-gray-400 mb-4">Delicious vegetarian cuisine made with love and the freshest ingredients since 2015.</p>
+                        <p class="text-gray-400 mb-4">Delicious vegetarian cuisine made with love and the freshest
+                            ingredients since 2015.</p>
                         <div class="flex space-x-4">
                             <a href="#" class="text-gray-400 hover:text-primary transition-colors">
                                 <i class="fab fa-facebook-f"></i>
@@ -547,11 +625,16 @@
                     <div>
                         <h3 class="text-lg font-bold mb-4">Quick Links</h3>
                         <ul class="space-y-2">
-                            <li><a href="home.html" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
-                            <li><a href="about.html" class="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
-                            <li><a href="menu_bar/veg.html" class="text-gray-400 hover:text-primary transition-colors">Menu</a></li>
-                            <li><a href="order.html" class="text-gray-400 hover:text-primary transition-colors">Order Online</a></li>
-                            <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                            <li><a href="home.html" class="text-gray-400 hover:text-primary transition-colors">Home</a>
+                            </li>
+                            <li><a href="about.html" class="text-gray-400 hover:text-primary transition-colors">About
+                                    Us</a></li>
+                            <li><a href="menu_bar/veg.html"
+                                    class="text-gray-400 hover:text-primary transition-colors">Menu</a></li>
+                            <li><a href="order.html" class="text-gray-400 hover:text-primary transition-colors">Order
+                                    Online</a></li>
+                            <li><a href="contact.html"
+                                    class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
                         </ul>
                     </div>
                     <div>
@@ -577,44 +660,46 @@
                     </div>
                 </div>
                 <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                    <p>&copy; 2023 Foodie Delight. All rights reserved. | <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-primary transition-colors">Terms of Service</a></p>
+                    <p>&copy; 2023 Foodie Delight. All rights reserved. | <a href="#"
+                            class="hover:text-primary transition-colors">Privacy Policy</a> | <a href="#"
+                            class="hover:text-primary transition-colors">Terms of Service</a></p>
                 </div>
             </div>
         </footer>
-    
+
         <!-- JavaScript -->
         <script>
             // Wait for DOM to load
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 // Loading screen
-                setTimeout(function() {
+                setTimeout(function () {
                     document.getElementById('loading-screen').style.opacity = '0';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         document.getElementById('loading-screen').style.display = 'none';
                     }, 500);
                 }, 1000);
-    
+
                 // Mobile menu toggle
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
                 const mobileMenu = document.getElementById('mobile-menu');
-                
-                mobileMenuButton.addEventListener('click', function() {
+
+                mobileMenuButton.addEventListener('click', function () {
                     mobileMenu.classList.toggle('hidden');
                 });
-    
+
                 // Dark mode toggle
                 const darkModeToggle = document.getElementById('dark-mode-toggle');
                 const darkModeIcon = document.getElementById('dark-mode-icon');
-                
+
                 // Check for saved user preference
                 if (localStorage.getItem('darkMode') === 'enabled') {
                     document.documentElement.classList.add('dark');
                     darkModeIcon.classList.replace('fa-moon', 'fa-sun');
                 }
-                
-                darkModeToggle.addEventListener('click', function() {
+
+                darkModeToggle.addEventListener('click', function () {
                     document.documentElement.classList.toggle('dark');
-                    
+
                     if (document.documentElement.classList.contains('dark')) {
                         localStorage.setItem('darkMode', 'enabled');
                         darkModeIcon.classList.replace('fa-moon', 'fa-sun');
@@ -623,33 +708,33 @@
                         darkModeIcon.classList.replace('fa-sun', 'fa-moon');
                     }
                 });
-    
+
                 // Scroll to top button
                 const scrollToTopButton = document.getElementById('scroll-to-top');
-                
-                window.addEventListener('scroll', function() {
+
+                window.addEventListener('scroll', function () {
                     if (window.pageYOffset > 300) {
                         scrollToTopButton.classList.add('show');
                     } else {
                         scrollToTopButton.classList.remove('show');
                     }
                 });
-                
-                scrollToTopButton.addEventListener('click', function() {
+
+                scrollToTopButton.addEventListener('click', function () {
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
                     });
                 });
-    
+
                 // Smooth scrolling for anchor links
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
+                    anchor.addEventListener('click', function (e) {
                         e.preventDefault();
-                        
+
                         const targetId = this.getAttribute('href');
                         if (targetId === '#') return;
-                        
+
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
                             targetElement.scrollIntoView({
@@ -658,17 +743,17 @@
                         }
                     });
                 });
-    
+
                 // Animated counters
                 const counters = document.querySelectorAll('.counter');
                 const speed = 200;
-                
+
                 function animateCounters() {
                     counters.forEach(counter => {
                         const target = +counter.getAttribute('data-target');
                         const count = +counter.innerText;
                         const increment = target / speed;
-                        
+
                         if (count < target) {
                             counter.innerText = Math.ceil(count + increment);
                             setTimeout(animateCounters, 1);
@@ -677,7 +762,7 @@
                         }
                     });
                 }
-                
+
                 // Start counting when stats section is in view
                 const statsSection = document.querySelector('section.bg-primary');
                 const observer = new IntersectionObserver((entries) => {
@@ -686,12 +771,12 @@
                         observer.unobserve(statsSection);
                     }
                 }, { threshold: 0.5 });
-                
+
                 observer.observe(statsSection);
-    
+
                 // Navbar shadow on scroll
                 const navbar = document.getElementById('navbar');
-                window.addEventListener('scroll', function() {
+                window.addEventListener('scroll', function () {
                     if (window.scrollY > 10) {
                         navbar.classList.add('shadow-lg');
                     } else {
@@ -701,4 +786,5 @@
             });
         </script>
     </body>
-    </html>
+
+</html>
