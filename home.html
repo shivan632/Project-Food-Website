@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Foodie Delight - Modern Food Experience</title>
-        <meta name="description" content="Discover delicious vegetarian food, refreshing drinks, and delightful desserts at Foodie Delight. Order online for quick delivery.">
-        
+        <meta name="description"
+            content="Discover delicious vegetarian food, refreshing drinks, and delightful desserts at Foodie Delight. Order online for quick delivery.">
+
         <!-- Css Link -->
         <link rel="stylesheet" href="home.css" media="screen" type="text/css">
 
         <!-- Favicon -->
         <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
-        
+
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-        
-        
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+
+
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -55,24 +59,27 @@
             }
         </script>
     </head>
-    
+
     <body class="font-sans bg-gray-50 transition-colors duration-300 dark:bg-gray-900">
         <!-- Loading Screen -->
-        <div id="loading-screen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+        <div id="loading-screen"
+            class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
             <div class="loading-spinner mb-4"></div>
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Loading Foodie Delight...</h2>
         </div>
-        
-        
-        <button id="scroll-to-top" class="scroll-to-top bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-all">
+
+
+        <button id="scroll-to-top"
+            class="scroll-to-top bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-all">
             <i class="fas fa-arrow-up text-xl"></i>
         </button>
-        
+
         <!-- Dark Mode Toggle -->
-        <button id="dark-mode-toggle" class="fixed bottom-4 left-4 bg-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-50 hover:bg-gray-700 transition-all">
+        <button id="dark-mode-toggle"
+            class="fixed bottom-4 left-4 bg-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center z-50 hover:bg-gray-700 transition-all">
             <i class="fas fa-moon text-xl" id="dark-mode-icon"></i>
         </button>
-        
+
         <!-- Navigation Bar -->
         <header class="fixed w-full bg-white dark:bg-dark shadow-md z-40 transition-all duration-300" id="navbar">
             <div class="container mx-auto px-4 py-3">
@@ -81,66 +88,95 @@
                     <div class="flex items-center">
                         <a href="#" class="flex items-center space-x-2">
                             <i class="fas fa-utensils text-3xl text-primary"></i>
-                            <span class="text-2xl font-bold text-dark dark:text-white">Foodie<span class="text-primary">Delight</span></span>
+                            <span class="text-2xl font-bold text-dark dark:text-white">Foodie<span
+                                    class="text-primary">Delight</span></span>
                         </a>
                     </div>
-                    
+
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex items-center space-x-8">
-                        <a href="home.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-home"></i> Home</a>
-                        <a href="about.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-info-circle"></i> About</a>
-                        <a href="contact.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-envelope"></i> Contact</a>
-                        <a href="menu_bar/veg.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium" target="_blank"><i class="fas fa-list"></i> Menu</a>
-                        <a href="order.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-shopping-cart"></i> Order</a>
-                        
+                        <a href="home.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-home"></i> Home</a>
+                        <a href="about.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-info-circle"></i> About</a>
+                        <a href="contact.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-envelope"></i> Contact</a>
+                        <a href="menu_bar/veg.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"
+                            target="_blank"><i class="fas fa-list"></i> Menu</a>
+                        <a href="order.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-shopping-cart"></i> Order</a>
+
                         <!-- Add login link here -->
-                        <a href="login.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i class="fas fa-sign-in-alt"></i> Login</a>
-                        
+                        <a href="login.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-sign-in-alt"></i> Login</a>
+
                         <!-- Search Bar -->
                         <div class="relative ml-4">
-                            <input type="text" placeholder="Search dishes..." class="pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                            <button class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+                            <input type="text" placeholder="Search dishes..."
+                                class="pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                            <button
+                                class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
-                        
+
                         <!-- Cart Button -->
-                        <a href="order.html" class="relative ml-4 p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors">
+                        <a href="order.html"
+                            class="relative ml-4 p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors">
                             <i class="fas fa-shopping-cart"></i>
-                            <span class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                            <span
+                                class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
                         </a>
                     </nav>
-                         
+
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
-            
+
             <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transition-all duration-300">
+            <div id="mobile-menu"
+                class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transition-all duration-300">
                 <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-                    <a href="#home" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Home</a>
-                    <a href="#menu" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Menu</a>
-                    <a href="#features" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Features</a>
-                    <a href="#testimonials" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Testimonials</a>
-                    <a href="#contact" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Contact</a>
-                    
+                    <a href="#home"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Home</a>
+                    <a href="#menu"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Menu</a>
+                    <a href="#features"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Features</a>
+                    <a href="#testimonials"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Testimonials</a>
+                    <a href="#contact"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Contact</a>
+
                     <!-- Login link for mobile -->
-                    <a href="login.html" class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i class="fas fa-sign-in-alt mr-2"></i>Login/Sign up</a>
+                    <a href="login.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-sign-in-alt mr-2"></i>Login/Sign up</a>
 
                     <div class="relative">
-                        <input type="search" placeholder="Search dishes..." class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                        <button class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+                        <input type="search" placeholder="Search dishes..."
+                            class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                        <button
+                            class="absolute right-3 top-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-                    
-                    <button class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
+
+                    <button
+                        class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
                         <i class="fas fa-shopping-cart mr-2"></i>
                         <span>Cart</span>
-                        <span class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">7</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">7</span>
                     </button>
                 </div>
             </div>
@@ -150,37 +186,45 @@
         <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 hero-gradient text-white relative overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <div class="absolute inset-0 bg-black opacity-30"></div>
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Delicious food" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                    alt="Delicious food" class="w-full h-full object-cover">
             </div>
-            
+
             <div class="container mx-auto px-4 relative z-10">
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
-                        <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 leading-tight">Delicious Food Delivered To <span class="text-accent">Your Doorstep</span></h1>
-                        <p class="text-xl mb-8">Order from our wide selection of vegetarian dishes, refreshing drinks, and delightful desserts. Fast delivery guaranteed!</p>
-                        
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 leading-tight">Delicious Food
+                            Delivered To <span class="text-accent">Your Doorstep</span></h1>
+                        <p class="text-xl mb-8">Order from our wide selection of vegetarian dishes, refreshing drinks,
+                            and delightful desserts. Fast delivery guaranteed!</p>
+
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                            <button class="bg-accent text-dark font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors ripple flex items-center justify-center">
+                            <button
+                                class="bg-accent text-dark font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors ripple flex items-center justify-center">
                                 <i class="fas fa-shopping-cart mr-2"></i> <a href="order.html">Order Now</a>
                             </button>
-                            <button class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-dark transition-colors ripple flex items-center justify-center">
+                            <button
+                                class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-dark transition-colors ripple flex items-center justify-center">
                                 <i class="fas fa-play-circle mr-2"></i> Watch Video
                             </button>
                         </div>
-                        
+
                         <div class="mt-10 flex items-center space-x-6">
                             <div class="flex items-center">
                                 <div class="flex -space-x-2">
-                                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Happy customer" class="w-10 h-10 rounded-full border-2 border-white">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Happy customer" class="w-10 h-10 rounded-full border-2 border-white">
-                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Happy customer" class="w-10 h-10 rounded-full border-2 border-white">
+                                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Happy customer"
+                                        class="w-10 h-10 rounded-full border-2 border-white">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Happy customer"
+                                        class="w-10 h-10 rounded-full border-2 border-white">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Happy customer"
+                                        class="w-10 h-10 rounded-full border-2 border-white">
                                 </div>
                                 <div class="ml-4">
                                     <p class="font-bold">10,000+</p>
                                     <p class="text-sm">Happy Customers</p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-center">
                                 <div class="bg-white text-primary rounded-full p-2">
                                     <i class="fas fa-star"></i>
@@ -192,12 +236,15 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="md:w-1/2 animate-slide-up">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Featured dish" class="w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-white transform rotate-2">
-                            
-                            <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg w-40">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                                alt="Featured dish"
+                                class="w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-white transform rotate-2">
+
+                            <div
+                                class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg w-40">
                                 <div class="flex items-center">
                                     <div class="bg-primary text-white p-2 rounded-full">
                                         <i class="fas fa-fire"></i>
@@ -208,8 +255,9 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="absolute -top-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg w-40">
+
+                            <div
+                                class="absolute -top-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg w-40">
                                 <div class="flex items-center">
                                     <div class="bg-secondary text-white p-2 rounded-full">
                                         <i class="fas fa-bolt"></i>
@@ -225,12 +273,14 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Main 3 block -->
         <section id="features" class="py-16 bg-gray-50 dark:bg-gray-800">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Types of <span class="text-gradient">Food in Menu</span></h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our wide selection of vegetarian dishes, drinks, and desserts</p>
+                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Types of <span class="text-gradient">Food in
+                        Menu</span></h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our wide selection of
+                    vegetarian dishes, drinks, and desserts</p>
             </div>
             <div class="container1">
                 <div class="food-block">
@@ -241,7 +291,7 @@
                         <a href="menu_bar\veg.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
                     </div>
                 </div>
-        
+
                 <div class="food-block">
                     <img src="/food_img\image copy 17.png" alt="Food Image">
                     <div class="food-details">
@@ -250,7 +300,7 @@
                         <a href="menu_bar\drink.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
                     </div>
                 </div>
-        
+
                 <div class="food-block">
                     <img src="/food_img\image copy 24.png" alt="Food Image">
                     <div class="food-details">
@@ -261,171 +311,221 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Menu Section -->
         <section id="menu" class="py-16 bg-white dark:bg-gray-900">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Our <span class="text-gradient">Delicious Menu</span></h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our wide selection of vegetarian dishes, drinks, and desserts</p>
+                    <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Our <span class="text-gradient">Delicious
+                            Menu</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our wide selection of
+                        vegetarian dishes, drinks, and desserts</p>
                 </div>
-                
+
                 <!-- Menu Filter -->
                 <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <button class="px-6 py-2 rounded-full bg-primary text-white font-medium ripple transition-all">All</button>
-                    <button class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Main Dishes</button>
-                    <button href="menu_bar/drink.html" class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Drinks</button>
-                    <button class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Desserts</button>
-                    <button class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Vegitarian</button>
+                    <button
+                        class="px-6 py-2 rounded-full bg-primary text-white font-medium ripple transition-all">All</button>
+                    <button
+                        class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Main
+                        Dishes</button>
+                    <button href="menu_bar/drink.html"
+                        class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Drinks</button>
+                    <button
+                        class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Desserts</button>
+                    <button
+                        class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Vegitarian</button>
                 </div>
-                
+
                 <!-- Menu Items -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Menu Item 1 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Vegetarian Dish" class="w-full h-56 object-cover">
-                            <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">Popular</div>
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                                alt="Vegetarian Dish" class="w-full h-56 object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">
+                                Popular</div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold dark:text-white">Vegetarian Pasta</h3>
                                 <span class="text-lg font-bold text-primary">$12.99</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Fresh pasta with seasonal vegetables in a creamy alfredo sauce.</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Fresh pasta with seasonal vegetables in a
+                                creamy alfredo sauce.</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.8 (120)</span>
                                 </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add to Cart</button>
+                                <button
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    to Cart</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Menu Item 2 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Salad Bowl" class="w-full h-56 object-cover">
-                            <div class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-bold">Healthy</div>
+                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Salad Bowl" class="w-full h-56 object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-bold">
+                                Healthy</div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold dark:text-white">Superfood Salad</h3>
                                 <span class="text-lg font-bold text-primary">$10.99</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Kale, quinoa, avocado, nuts and berries with lemon dressing.</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Kale, quinoa, avocado, nuts and berries
+                                with lemon dressing.</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.7 (95)</span>
                                 </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add to Cart</button>
+                                <button
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    to Cart</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Menu Item 3 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1547&q=80" alt="French Toast" class="w-full h-56 object-cover">
-                            <div class="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-sm font-bold">New</div>
+                            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1547&q=80"
+                                alt="French Toast" class="w-full h-56 object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-sm font-bold">
+                                New</div>
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold dark:text-white">French Toast</h3>
                                 <span class="text-lg font-bold text-primary">$8.99</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Thick brioche bread dipped in cinnamon batter with maple syrup.</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Thick brioche bread dipped in cinnamon
+                                batter with maple syrup.</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.9 (75)</span>
                                 </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add to Cart</button>
+                                <button
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    to Cart</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Menu Item 4 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80" alt="Smoothie Bowl" class="w-full h-56 object-cover">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80"
+                                alt="Smoothie Bowl" class="w-full h-56 object-cover">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold dark:text-white">Acai Smoothie Bowl</h3>
                                 <span class="text-lg font-bold text-primary">$9.99</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Blended acai with banana, topped with granola and fresh fruits.</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Blended acai with banana, topped with
+                                granola and fresh fruits.</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.8 (110)</span>
                                 </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add to Cart</button>
+                                <button
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    to Cart</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Menu Item 5 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Ice Cream" class="w-full h-56 object-cover">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                                alt="Ice Cream" class="w-full h-56 object-cover">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold dark:text-white">Artisan Ice Cream</h3>
                                 <span class="text-lg font-bold text-primary">$6.99</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Handcrafted ice cream with premium ingredients and unique flavors.</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Handcrafted ice cream with premium
+                                ingredients and unique flavors.</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.9 (150)</span>
                                 </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add to Cart</button>
+                                <button
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    to Cart</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Menu Item 6 -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-md card-hover-effect transition-all">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cold Brew" class="w-full h-56 object-cover">
+                            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Cold Brew" class="w-full h-56 object-cover">
                         </div>
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold dark:text-white">Cold Brew Coffee</h3>
                                 <span class="text-lg font-bold text-primary">$4.99</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Smooth cold brew coffee with notes of chocolate and caramel.</p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Smooth cold brew coffee with notes of
+                                chocolate and caramel.</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center">
                                     <i class="fas fa-star text-yellow-400"></i>
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.7 (85)</span>
                                 </div>
-                                <button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add to Cart</button>
+                                <button
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    to Cart</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Special Offer Section -->
         <section class="py-16 bg-primary text-white">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row items-center justify-between">
                     <div class="md:w-1/2 mb-8 md:mb-0">
-                        <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Special <span class="text-accent">Weekend Offer</span></h2>
-                        <p class="text-xl mb-6">Get 20% off all orders over $30 this weekend. Use code <span class="font-bold bg-white text-primary px-2 py-1 rounded">WEEKEND20</span> at checkout.</p>
+                        <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Special <span
+                                class="text-accent">Weekend Offer</span></h2>
+                        <p class="text-xl mb-6">Get 20% off all orders over $30 this weekend. Use code <span
+                                class="font-bold bg-white text-primary px-2 py-1 rounded">WEEKEND20</span> at checkout.
+                        </p>
                         <p class="text-lg">Offer valid until Sunday midnight. Free delivery on all orders over $15.</p>
                     </div>
                     <div class="md:w-1/2 text-center">
                         <div class="relative inline-block">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1681&q=80" alt="Special offer" class="w-64 h-64 object-cover rounded-full border-4 border-white shadow-lg floating">
-                            <div class="absolute -bottom-4 -right-4 bg-accent text-dark font-bold px-6 py-2 rounded-full shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1681&q=80"
+                                alt="Special offer"
+                                class="w-64 h-64 object-cover rounded-full border-4 border-white shadow-lg floating">
+                            <div
+                                class="absolute -bottom-4 -right-4 bg-accent text-dark font-bold px-6 py-2 rounded-full shadow-lg">
                                 20% OFF
                             </div>
                         </div>
@@ -437,112 +537,143 @@
         <!-- See Foods Details -->
         <div class="container mx-auto px-4 py-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">See <span class="text-gradient">Food's Details</span></h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our wide selection of vegetarian dishes, drinks, and desserts</p>
+                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">See <span class="text-gradient">Food's
+                        Details</span></h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our wide selection of
+                    vegetarian dishes, drinks, and desserts</p>
             </div>
-            
+
             <div class="bg-gray-700 p-6 rounded-xl shadow-lg max-w-4xl mx-auto">
                 <div class="space-y-4">
                     <!-- Food Item 1 -->
-                    <div class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
-                        <img src="/food_img/image copy 3.png" alt="Chowmein" class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
+                    <div
+                        class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
+                        <img src="/food_img/image copy 3.png" alt="Chowmein"
+                            class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Chowmein</h4>
                             <p class="text-gray-600 mt-1">
-                                Our <strong class="text-gray-800">special vegetarian Chowmein</strong> is made with fresh veggies, tender noodles, and bold flavors!
+                                Our <strong class="text-gray-800">special vegetarian Chowmein</strong> is made with
+                                fresh veggies, tender noodles, and bold flavors!
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
-                                    Stir-fried with soy sauce, garlic, and secret spices, every bite offers a perfect blend of smoky goodness. 
-                                    Served with spicy chutney or mild garlic sauce, making it an ideal meal for noodle lovers.
+                                    Stir-fried with soy sauce, garlic, and secret spices, every bite offers a perfect
+                                    blend of smoky goodness.
+                                    Served with spicy chutney or mild garlic sauce, making it an ideal meal for noodle
+                                    lovers.
                                 </p>
                             </div>
-                            <a href="menu_bar/veg.html" class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            <a href="menu_bar/veg.html"
+                                class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
                                 Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Food Item 2 -->
-                    <div class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
-                        <img src="/food_img/image copy 4.png" alt="Pasta Alfredo" class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
+                    <div
+                        class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
+                        <img src="/food_img/image copy 4.png" alt="Pasta Alfredo"
+                            class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Pasta Alfredo</h4>
                             <p class="text-gray-600 mt-1">
-                                Indulge in the rich, creamy delight of our <strong class="text-gray-800">vegetarian Pasta Alfredo</strong> with Parmesan cheese and butter.
+                                Indulge in the rich, creamy delight of our <strong class="text-gray-800">vegetarian
+                                    Pasta Alfredo</strong> with Parmesan cheese and butter.
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
-                                    Made with fresh cream, garlic, and a touch of nutmeg, this classic Italian dish is a comfort food favorite. 
+                                    Made with fresh cream, garlic, and a touch of nutmeg, this classic Italian dish is a
+                                    comfort food favorite.
                                     Add sautéed mushrooms or spinach for an extra burst of flavor.
                                 </p>
                             </div>
-                            <a href="menu_bar/veg.html" class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            <a href="menu_bar/veg.html"
+                                class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
                                 Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Food Item 3 -->
-                    <div class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
-                        <img src="/food_img/image copy 14.png" alt="Mango Smoothie" class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
+                    <div
+                        class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
+                        <img src="/food_img/image copy 14.png" alt="Mango Smoothie"
+                            class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Mango Smoothie</h4>
                             <p class="text-gray-600 mt-1">
-                                Blended with ripe mangoes, yogurt, and a touch of honey, this creamy smoothie is a tropical burst of freshness in every sip.
+                                Blended with ripe mangoes, yogurt, and a touch of honey, this creamy smoothie is a
+                                tropical burst of freshness in every sip.
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
-                                    Rich in vitamin C and fiber, it boosts immunity and digestion. For extra creaminess, add a splash of coconut milk or a scoop of vanilla protein powder!
+                                    Rich in vitamin C and fiber, it boosts immunity and digestion. For extra creaminess,
+                                    add a splash of coconut milk or a scoop of vanilla protein powder!
                                 </p>
                             </div>
-                            <a href="menu_bar/drink.html" class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            <a href="menu_bar/drink.html"
+                                class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
                                 Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Food Item 4 -->
-                    <div class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
-                        <img src="/food_img/image copy 15.png" alt="Green Tea" class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
+                    <div
+                        class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
+                        <img src="/food_img/image copy 15.png" alt="Green Tea"
+                            class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Green Tea</h4>
                             <p class="text-gray-600 mt-1">
-                                Steeped from antioxidant-rich leaves, green tea offers a refreshing, earthy flavor with metabolism-boosting benefits.
+                                Steeped from antioxidant-rich leaves, green tea offers a refreshing, earthy flavor with
+                                metabolism-boosting benefits.
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
-                                    Contains L-theanine for calm focus and catechins for heart health. For best flavor, steep at 175°F (80°C) for 2-3 minutes to avoid bitterness.
+                                    Contains L-theanine for calm focus and catechins for heart health. For best flavor,
+                                    steep at 175°F (80°C) for 2-3 minutes to avoid bitterness.
                                 </p>
                             </div>
-                            <a href="menu_bar/drink.html" class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            <a href="menu_bar/drink.html"
+                                class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
                                 Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Food Item 5 -->
-                    <div class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
-                        <img src="/food_img/image copy 24.png" alt="Ice Cream Sundae" class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
+                    <div
+                        class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
+                        <img src="/food_img/image copy 24.png" alt="Ice Cream Sundae"
+                            class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Ice Cream Sundae</h4>
                             <p class="text-gray-600 mt-1">
-                                Indulge in a classic ice cream sundae—cool, creamy scoops topped with syrup, whipped cream, and a cherry for the perfect sweet treat.
+                                Indulge in a classic ice cream sundae—cool, creamy scoops topped with syrup, whipped
+                                cream, and a cherry for the perfect sweet treat.
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
-                                    Fun fact: The sundae was invented in the late 1800s as a Sunday treat when soda fountains couldn't sell ice cream sodas on the Sabbath. For a lighter version, try frozen yogurt with fresh fruit and dark chocolate shavings!
+                                    Fun fact: The sundae was invented in the late 1800s as a Sunday treat when soda
+                                    fountains couldn't sell ice cream sodas on the Sabbath. For a lighter version, try
+                                    frozen yogurt with fresh fruit and dark chocolate shavings!
                                 </p>
                             </div>
-                            <a href="menu_bar/desserts.html" class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            <a href="menu_bar/desserts.html"
+                                class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
                                 Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Food Item 6 -->
-                    <div class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
-                        <img src="/food_img/image copy 21.png" alt="Chocolate Lava Cake" class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
+                    <div
+                        class="food-item bg-white p-5 rounded-lg flex flex-col md:flex-row items-start gap-4 shadow-md hover:shadow-lg">
+                        <img src="/food_img/image copy 21.png" alt="Chocolate Lava Cake"
+                            class="food-image w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Chocolate Lava Cake</h4>
                             <p class="text-gray-600 mt-1">
@@ -550,10 +681,12 @@
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
-                                    Served with a scoop of vanilla ice cream and drizzled with chocolate sauce, this dessert is a chocoholic's dream.
+                                    Served with a scoop of vanilla ice cream and drizzled with chocolate sauce, this
+                                    dessert is a chocoholic's dream.
                                 </p>
                             </div>
-                            <a href="menu_bar/desserts.html" class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            <a href="menu_bar/desserts.html"
+                                class="inline-block mt-3 text-orange-600 font-semibold hover:text-orange-700 transition-colors">
                                 Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
@@ -561,240 +694,253 @@
                 </div>
             </div>
         </div>
-                        
-                        <!-- App Download Section -->
-                        <section class="py-16 bg-white dark:bg-gray-900">
-                            <div class="container mx-auto px-4">
-                                <div class="flex flex-col md:flex-row items-center">
-                                    <div class="md:w-1/2 mb-10 md:mb-0">
-                                        <img src="food_img/aap_icon2.jpg" alt="Foodie Delight app" class="w-full max-w-md mx-auto rounded-xl shadow-lg">
-                                    </div>
-                                    <div class="md:w-1/2 md:pl-12">
-                                        <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6 dark:text-white">Download Our <span class="text-gradient">Mobile App</span></h2>
-                                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">Order food faster, track your delivery in real-time, and get exclusive app-only discounts. Available for both iOS and Android devices.</p>
-                                        
-                                        <div class="flex flex-col sm:flex-row gap-4">
-                                            <button class="bg-dark text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors ripple">
-                                                <i class="fab fa-apple text-2xl mr-3"></i>
-                                                <div class="text-left">
-                                                    <div class="text-xs">Download on the</div>
-                                                    <div class="font-bold">App Store</div>
-                                                </div>
-                                            </button>
-                                            
-                                            <button class="bg-dark text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors ripple">
-                                                <i class="fab fa-google-play text-2xl mr-3"></i>
-                                                <div class="text-left">
-                                                    <div class="text-xs">Get it on</div>
-                                                    <div class="font-bold">Google Play</div>
-                                                </div>
-                                            </button>
-                                        </div>
-                                        
-                                        <div class="mt-8 flex items-center">
-                                            <div class="flex items-center mr-6">
-                                                <i class="fas fa-user-plus text-2xl text-primary mr-3"></i>
-                                                <div>
-                                                    <div class="font-bold dark:text-white">500K+</div>
-                                                    <div class="text-sm text-gray-600 dark:text-gray-300">App Downloads</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <i class="fas fa-star text-2xl text-primary mr-3"></i>
-                                                <div>
-                                                    <div class="font-bold dark:text-white">4.8/5</div>
-                                                    <div class="text-sm text-gray-600 dark:text-gray-300">App Rating</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+        <!-- App Download Section -->
+        <section class="py-16 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <img src="food_img/aap_icon2.jpg" alt="Foodie Delight app"
+                            class="w-full max-w-md mx-auto rounded-xl shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6 dark:text-white">Download Our <span
+                                class="text-gradient">Mobile App</span></h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">Order food faster, track your delivery
+                            in real-time, and get exclusive app-only discounts. Available for both iOS and Android
+                            devices.</p>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button
+                                class="bg-dark text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors ripple">
+                                <i class="fab fa-apple text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Download on the</div>
+                                    <div class="font-bold">App Store</div>
+                                </div>
+                            </button>
+
+                            <button
+                                class="bg-dark text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors ripple">
+                                <i class="fab fa-google-play text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs">Get it on</div>
+                                    <div class="font-bold">Google Play</div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="mt-8 flex items-center">
+                            <div class="flex items-center mr-6">
+                                <i class="fas fa-user-plus text-2xl text-primary mr-3"></i>
+                                <div>
+                                    <div class="font-bold dark:text-white">500K+</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">App Downloads</div>
                                 </div>
                             </div>
-                        </section>
-                        
-                        <!-- Placeses for Food -->
-                        <section class="py-16 bg-white dark:bg-gray-900">
-                            <div class="text-center mb-16">
-                                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Best Places to <span class="text-gradient">Eat Across Cities</span></h2>
-                                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Discover top-rated restaurants in India's favorite food destinations of our Company.</p>
-                            </div>
-                            <div class="container_2">
-                                
-                                <div class="cities-grid" id="visible-cities">
-                                    <!-- First Row -->
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Bangalore</h3>
-                                        <p>Silicon Valley's culinary hotspots</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Pune</h3>
-                                        <p>Maharashtrian flavors and more</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Mumbai</h3>
-                                        <p>City of dreams and delicious eats</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Delhi</h3>
-                                        <p>Mughlai to modern cuisine</p>
-                                    </div>
-                                    
-                                    <!-- Second Row -->
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Hyderabad</h3>
-                                        <p>Home of the legendary biryani</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Kolkata</h3>
-                                        <p>Where sweets meet street food</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Chennai</h3>
-                                        <p>Authentic South Indian delights</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Chandigarh</h3>
-                                        <p>Punjabi flavors at their best</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="cities-grid hidden-cities" id="hidden-cities">
-                                    <!-- Hidden Cities -->
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Ahmedabad</h3>
-                                        <p>Gujarati thalis and beyond</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Jaipur</h3>
-                                        <p>Rajasthani royal cuisine</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Nagpur</h3>
-                                        <p>Famous for Saoji delicacies</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Goa</h3>
-                                        <p>Seafood and Portuguese influence</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Lucknow</h3>
-                                        <p>Awadhi cuisine at its finest</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Kochi</h3>
-                                        <p>Kerala's coastal flavors</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Indore</h3>
-                                        <p>Street food paradise</p>
-                                    </div>
-                                    
-                                    <div class="city-card">
-                                        <h3>Best Restaurants in Shimla</h3>
-                                        <p>Himachali specialties</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="show-more">
-                                    <button class="show-more-btn" id="show-more-btn">
-                                        Show More <i class="fas fa-chevron-down"></i>
-                                    </button>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-2xl text-primary mr-3"></i>
+                                <div>
+                                    <div class="font-bold dark:text-white">4.8/5</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">App Rating</div>
                                 </div>
                             </div>
-                        
-                        </section>
-                        
-                        <!-- Footer -->
-                        <footer class="bg-dark text-white py-12">
-                            <div class="container mx-auto px-4">
-                                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                                    <div>
-                                        <h3 class="text-xl font-bold mb-4 flex items-center">
-                                            <i class="fas fa-utensils text-2xl text-primary mr-2"></i>
-                                            <span>Foodie<span class="text-primary">Delight</span></span>
-                                        </h3>
-                                        <p class="text-gray-400 mb-4">Delivering delicious vegetarian food with love and care since 2015.</p>
-                                        <div class="flex space-x-4">
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                                                <i class="fab fa-pinterest"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                                        <ul class="space-y-2">
-                                            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                                            <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
-                                            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                                            <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
-                                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-bold mb-4">Our Menu</h4>
-                                        <ul class="space-y-2">
-                                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Main Dishes</a></li>
-                                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Salads</a></li>
-                                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Desserts</a></li>
-                                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Drinks</a></li>
-                                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Specials</a></li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <div>
-                                        <h4 class="text-lg font-bold mb-4">Contact Us</h4>
-                                        <address class="not-italic text-gray-400">
-                                            <p class="mb-2">123 Foodie Street</p>
-                                            <p class="mb-2">Delight City, FD 12345</p>
-                                            <p class="mb-2">Phone: +1 (555) 123-4567</p>
-                                            <p class="mb-2">Email: info@foodiedelight.com</p>
-                                        </address>
-                                    </div>
-                                </div>
-                                
-                                <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 Foodie Delight. All rights reserved.</p>
-                                    <div class="flex space-x-6">
-                                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies Policy</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                        
-            <!-- JavaScript -->
-            <script>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeses for Food -->
+        <section class="py-16 bg-white dark:bg-gray-900">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">Best Places to <span
+                        class="text-gradient">Eat Across Cities</span></h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Discover top-rated restaurants in
+                    India's favorite food destinations of our Company.</p>
+            </div>
+            <div class="container_2">
+
+                <div class="cities-grid" id="visible-cities">
+                    <!-- First Row -->
+                    <div class="city-card">
+                        <h3>Best Restaurants in Bangalore</h3>
+                        <p>Silicon Valley's culinary hotspots</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Pune</h3>
+                        <p>Maharashtrian flavors and more</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Mumbai</h3>
+                        <p>City of dreams and delicious eats</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Delhi</h3>
+                        <p>Mughlai to modern cuisine</p>
+                    </div>
+
+                    <!-- Second Row -->
+                    <div class="city-card">
+                        <h3>Best Restaurants in Hyderabad</h3>
+                        <p>Home of the legendary biryani</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Kolkata</h3>
+                        <p>Where sweets meet street food</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Chennai</h3>
+                        <p>Authentic South Indian delights</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Chandigarh</h3>
+                        <p>Punjabi flavors at their best</p>
+                    </div>
+                </div>
+
+                <div class="cities-grid hidden-cities" id="hidden-cities">
+                    <!-- Hidden Cities -->
+                    <div class="city-card">
+                        <h3>Best Restaurants in Ahmedabad</h3>
+                        <p>Gujarati thalis and beyond</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Jaipur</h3>
+                        <p>Rajasthani royal cuisine</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Nagpur</h3>
+                        <p>Famous for Saoji delicacies</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Goa</h3>
+                        <p>Seafood and Portuguese influence</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Lucknow</h3>
+                        <p>Awadhi cuisine at its finest</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Kochi</h3>
+                        <p>Kerala's coastal flavors</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Indore</h3>
+                        <p>Street food paradise</p>
+                    </div>
+
+                    <div class="city-card">
+                        <h3>Best Restaurants in Shimla</h3>
+                        <p>Himachali specialties</p>
+                    </div>
+                </div>
+
+                <div class="show-more">
+                    <button class="show-more-btn" id="show-more-btn">
+                        Show More <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-utensils text-2xl text-primary mr-2"></i>
+                            <span>Foodie<span class="text-primary">Delight</span></span>
+                        </h3>
+                        <p class="text-gray-400 mb-4">Delivering delicious vegetarian food with love and care since
+                            2015.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                            <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
+                            <li><a href="#features"
+                                    class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                            <li><a href="#testimonials"
+                                    class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Our Menu</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Main Dishes</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Salads</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Desserts</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Drinks</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Specials</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                        <address class="not-italic text-gray-400">
+                            <p class="mb-2">123 Foodie Street</p>
+                            <p class="mb-2">Delight City, FD 12345</p>
+                            <p class="mb-2">Phone: +1 (555) 123-4567</p>
+                            <p class="mb-2">Email: info@foodiedelight.com</p>
+                        </address>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 Foodie Delight. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
             // Add interactivity to filter options
             document.querySelectorAll('.filter-option').forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     // For this demo, just toggle the active class
                     // In a real implementation, this would filter the restaurant list
                     this.classList.toggle('active');
-                    
+
                     // If it's a sort option, deactivate other sort options
                     if (this.parentElement.querySelector('.filter-label')?.textContent === 'Sort By') {
                         this.parentElement.querySelectorAll('.filter-option').forEach(opt => {
@@ -807,10 +953,10 @@
             const showMoreBtn = document.getElementById('show-more-btn');
             const hiddenCities = document.getElementById('hidden-cities');
             let isExpanded = false;
-            
-            showMoreBtn.addEventListener('click', function() {
+
+            showMoreBtn.addEventListener('click', function () {
                 isExpanded = !isExpanded;
-                
+
                 if (isExpanded) {
                     hiddenCities.classList.add('show');
                     showMoreBtn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
@@ -822,205 +968,205 @@
 
             // Add click event to all city cards
             document.querySelectorAll('.city-card').forEach(card => {
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     const cityName = this.querySelector('h3').textContent.replace('Best Restaurants in ', '');
                     alert(`Showing restaurants for ${cityName}`);
                     // In a real implementation, this would navigate to that city's restaurant page
                 });
             });
-        
 
-                            // Wait for the DOM to be fully loaded
-                            document.addEventListener('DOMContentLoaded', function() {
-                                // Loading screen
-                                setTimeout(function() {
-                                    document.getElementById('loading-screen').style.opacity = '0';
-                                    setTimeout(function() {
-                                        document.getElementById('loading-screen').style.display = 'none';
-                                    }, 500);
-                                }, 1500);
-                                
-                                // Mobile menu toggle
-                                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                                const mobileMenu = document.getElementById('mobile-menu');
-                                
-                                mobileMenuButton.addEventListener('click', function() {
-                                    mobileMenu.classList.toggle('hidden');
-                                });
-                                
-                                // Scroll to top button
-                                const scrollToTopButton = document.getElementById('scroll-to-top');
-                                
-                                window.addEventListener('scroll', function() {
-                                    if (window.pageYOffset > 300) {
-                                        scrollToTopButton.classList.add('show');
-                                    } else {
-                                        scrollToTopButton.classList.remove('show');
-                                    }
-                                });
-                                
-                                scrollToTopButton.addEventListener('click', function() {
-                                    window.scrollTo({
-                                        top: 0,
-                                        behavior: 'smooth'
-                                    });
-                                });
-                                
-                                // Dark mode toggle
-                                const darkModeToggle = document.getElementById('dark-mode-toggle');
-                                const darkModeIcon = document.getElementById('dark-mode-icon');
-                                const htmlElement = document.documentElement;
 
-                                // Check for saved user preference or use system preference
-                                const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                                const savedMode = localStorage.getItem('darkMode');
+            // Wait for the DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function () {
+                // Loading screen
+                setTimeout(function () {
+                    document.getElementById('loading-screen').style.opacity = '0';
+                    setTimeout(function () {
+                        document.getElementById('loading-screen').style.display = 'none';
+                    }, 500);
+                }, 1500);
 
-                                // Set initial state
-                                if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
-                                    enableDarkMode();
-                                } else {
-                                    disableDarkMode();
-                                }
+                // Mobile menu toggle
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
 
-                                // Listen for system color scheme changes
-                                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                                    if (!localStorage.getItem('darkMode')) {
-                                        if (e.matches) {
-                                            enableDarkMode();
-                                        } else {
-                                            disableDarkMode();
-                                        }
-                                    }
-                                });
+                mobileMenuButton.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
 
-                                // Toggle dark mode
-                                darkModeToggle.addEventListener('click', function() {
-                                    if (htmlElement.classList.contains('dark-mode')) {
-                                        disableDarkMode();
-                                    } else {
-                                        enableDarkMode();
-                                    }
-                                });
+                // Scroll to top button
+                const scrollToTopButton = document.getElementById('scroll-to-top');
 
-                                function enableDarkMode() {
-                                    htmlElement.classList.add('dark-mode');
-                                    darkModeIcon.classList.remove('fa-moon');
-                                    darkModeIcon.classList.add('fa-sun');
-                                    localStorage.setItem('darkMode', 'dark');
-                                }
+                window.addEventListener('scroll', function () {
+                    if (window.pageYOffset > 300) {
+                        scrollToTopButton.classList.add('show');
+                    } else {
+                        scrollToTopButton.classList.remove('show');
+                    }
+                });
 
-                                function disableDarkMode() {
-                                    htmlElement.classList.remove('dark-mode');
-                                    darkModeIcon.classList.remove('fa-sun');
-                                    darkModeIcon.classList.add('fa-moon');
-                                    localStorage.setItem('darkMode', 'light');
-                                }
-                                
-                                // Smooth scrolling for anchor links
-                                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                                    anchor.addEventListener('click', function(e) {
-                                        e.preventDefault();
-                                        
-                                        const targetId = this.getAttribute('href');
-                                        if (targetId === '#') return;
-                                        
-                                        const targetElement = document.querySelector(targetId);
-                                        if (targetElement) {
-                                            window.scrollTo({
-                                                top: targetElement.offsetTop - 80,
-                                                behavior: 'smooth'
-                                            });
-                                            
-                                            // Close mobile menu if open
-                                            if (!mobileMenu.classList.contains('hidden')) {
-                                                mobileMenu.classList.add('hidden');
-                                            }
-                                        }
-                                    });
-                                });
-                                
-                                // Navbar scroll effect
-                                const navbar = document.getElementById('navbar');
-                                let lastScrollTop = 0;
-                                
-                                window.addEventListener('scroll', function() {
-                                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                                    
-                                    if (scrollTop > lastScrollTop && scrollTop > 100) {
-                                        // Scroll down
-                                        navbar.style.transform = 'translateY(-100%)';
-                                    } else {
-                                        // Scroll up
-                                        navbar.style.transform = 'translateY(0)';
-                                    }
-                                    
-                                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-                                });
-                                
-                                // Ripple effect for buttons
-                                const buttons = document.querySelectorAll('.ripple');
-                                
-                                buttons.forEach(button => {
-                                    button.addEventListener('click', function(e) {
-                                        e.preventDefault();
-                                        const rect = this.getBoundingClientRect();
-                                        const x = e.clientX - rect.left;
-                                        const y = e.clientY - rect.top;
-                                        
-                                        const ripple = document.createElement('span');
-                                        ripple.className = 'ripple-effect';
-                                        ripple.style.left = `${x}px`;
-                                        ripple.style.top = `${y}px`;
-                                        
-                                        this.appendChild(ripple);
-                                        
-                                        setTimeout(() => {
-                                            ripple.remove();
-                                        }, 1000);
-                                    });
-                                });
-                                
-                                // Menu filter functionality
-                                const menuFilterButtons = document.querySelectorAll('#menu button');
-                                
-                                menuFilterButtons.forEach(button => {
-                                    button.addEventListener('click', function() {
-                                        // Remove active class from all buttons
-                                        menuFilterButtons.forEach(btn => {
-                                            btn.classList.remove('bg-primary', 'text-white');
-                                            btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'dark:text-white', 'hover:bg-primary', 'hover:text-white');
-                                        });
-                                        
-                                        // Add active class to clicked button
-                                        this.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'dark:text-white', 'hover:bg-primary', 'hover:text-white');
-                                        this.classList.add('bg-primary', 'text-white');
-                                        
-                                        // Here you would typically filter menu items
-                                        // For this demo, we'll just log the filter
-                                        console.log(`Filtering by: ${this.textContent.trim()}`);
-                                    });
-                                });
+                scrollToTopButton.addEventListener('click', function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Dark mode toggle
+                const darkModeToggle = document.getElementById('dark-mode-toggle');
+                const darkModeIcon = document.getElementById('dark-mode-icon');
+                const htmlElement = document.documentElement;
+
+                // Check for saved user preference or use system preference
+                const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const savedMode = localStorage.getItem('darkMode');
+
+                // Set initial state
+                if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
+                    enableDarkMode();
+                } else {
+                    disableDarkMode();
+                }
+
+                // Listen for system color scheme changes
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (!localStorage.getItem('darkMode')) {
+                        if (e.matches) {
+                            enableDarkMode();
+                        } else {
+                            disableDarkMode();
+                        }
+                    }
+                });
+
+                // Toggle dark mode
+                darkModeToggle.addEventListener('click', function () {
+                    if (htmlElement.classList.contains('dark-mode')) {
+                        disableDarkMode();
+                    } else {
+                        enableDarkMode();
+                    }
+                });
+
+                function enableDarkMode() {
+                    htmlElement.classList.add('dark-mode');
+                    darkModeIcon.classList.remove('fa-moon');
+                    darkModeIcon.classList.add('fa-sun');
+                    localStorage.setItem('darkMode', 'dark');
+                }
+
+                function disableDarkMode() {
+                    htmlElement.classList.remove('dark-mode');
+                    darkModeIcon.classList.remove('fa-sun');
+                    darkModeIcon.classList.add('fa-moon');
+                    localStorage.setItem('darkMode', 'light');
+                }
+
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
                             });
-                            // Check login status and update UI
-// Check login status and update UI
-function checkLoginStatus() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const userEmail = localStorage.getItem('userEmail');
-    const userName = localStorage.getItem('userName');
-    
-    // Find the login link in the navigation
-    const loginLink = document.querySelector('a[href="login.html"]');
-    const navContainer = document.querySelector('nav');
-    
-    if (isLoggedIn) {
-        // Replace login link with user dropdown
-        if (loginLink) {
-            loginLink.remove();
-            
-            // Create user dropdown
-            const userDropdown = document.createElement('div');
-            userDropdown.className = 'relative group';
-            userDropdown.innerHTML = `
+
+                            // Close mobile menu if open
+                            if (!mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+
+                // Navbar scroll effect
+                const navbar = document.getElementById('navbar');
+                let lastScrollTop = 0;
+
+                window.addEventListener('scroll', function () {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        // Scroll down
+                        navbar.style.transform = 'translateY(-100%)';
+                    } else {
+                        // Scroll up
+                        navbar.style.transform = 'translateY(0)';
+                    }
+
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                });
+
+                // Ripple effect for buttons
+                const buttons = document.querySelectorAll('.ripple');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+
+                        const ripple = document.createElement('span');
+                        ripple.className = 'ripple-effect';
+                        ripple.style.left = `${x}px`;
+                        ripple.style.top = `${y}px`;
+
+                        this.appendChild(ripple);
+
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 1000);
+                    });
+                });
+
+                // Menu filter functionality
+                const menuFilterButtons = document.querySelectorAll('#menu button');
+
+                menuFilterButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        // Remove active class from all buttons
+                        menuFilterButtons.forEach(btn => {
+                            btn.classList.remove('bg-primary', 'text-white');
+                            btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'dark:text-white', 'hover:bg-primary', 'hover:text-white');
+                        });
+
+                        // Add active class to clicked button
+                        this.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'dark:text-white', 'hover:bg-primary', 'hover:text-white');
+                        this.classList.add('bg-primary', 'text-white');
+
+                        // Here you would typically filter menu items
+                        // For this demo, we'll just log the filter
+                        console.log(`Filtering by: ${this.textContent.trim()}`);
+                    });
+                });
+            });
+            // Check login status and update UI
+            // Check login status and update UI
+            function checkLoginStatus() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                const userEmail = localStorage.getItem('userEmail');
+                const userName = localStorage.getItem('userName');
+
+                // Find the login link in the navigation
+                const loginLink = document.querySelector('a[href="login.html"]');
+                const navContainer = document.querySelector('nav');
+
+                if (isLoggedIn) {
+                    // Replace login link with user dropdown
+                    if (loginLink) {
+                        loginLink.remove();
+
+                        // Create user dropdown
+                        const userDropdown = document.createElement('div');
+                        userDropdown.className = 'relative group';
+                        userDropdown.innerHTML = `
                 <button class="flex items-center space-x-2 text-dark dark:text-white hover:text-primary transition-colors">
                     <i class="fas fa-user-circle text-xl"></i>
                     <span>${userName || 'Account'}</span>
@@ -1032,23 +1178,24 @@ function checkLoginStatus() {
                     <a href="#" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
                 </div>
             `;
-            
-            navContainer.appendChild(userDropdown);
-            
-            // Add logout functionality
-            document.getElementById('logoutBtn')?.addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('isLoggedIn');
-                localStorage.removeItem('userEmail');
-                localStorage.removeItem('userName');
-                window.location.href = 'home.html';
-            });
-        }
-    }
-}
 
-    // Call this function when the page loads
-    document.addEventListener('DOMContentLoaded', checkLoginStatus);
-                        </script>
+                        navContainer.appendChild(userDropdown);
+
+                        // Add logout functionality
+                        document.getElementById('logoutBtn')?.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            localStorage.removeItem('isLoggedIn');
+                            localStorage.removeItem('userEmail');
+                            localStorage.removeItem('userName');
+                            window.location.href = 'home.html';
+                        });
+                    }
+                }
+            }
+
+            // Call this function when the page loads
+            document.addEventListener('DOMContentLoaded', checkLoginStatus);
+        </script>
     </body>
+
 </html>
