@@ -3,10 +3,599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Foodie Delight</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Icon -->
+    <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFE66D',
+                        dark: '#292F36',
+                        light: '#F7FFF7',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'fade-in': 'fadeIn 1s ease-in',
+                        'slide-up': 'slideUp 1s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15,12,41,0.9) 0%, rgba(48,43,99,0.9) 50%, rgba(36,36,62,0.9) 100%);
+        }
+        
+        .neon-border {
+            position: relative;
+        }
+        
+        .neon-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #00dbde, #fc00ff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #FF6B6B;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
 </head>
-<body>
-    <h1>Welcome</h1>
-    <a href="home.html" target="_blank">home page</a>
+<body class="font-sans">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-dark z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="loading-spinner mb-4"></div>
+        <h2 class="text-xl font-semibold text-white">Loading Foodie Delight...</h2>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js" class="fixed inset-0 -z-10"></div>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex flex-col">
+        <!-- Hero Section -->
+        <section class="flex-grow flex items-center justify-center py-16 px-4 md:px-8">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- Left Content -->
+                    <div class="lg:w-1/2 text-center lg:text-left animate-fade-in">
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 leading-tight">
+                            Welcome to <span class="gradient-text">Foodie Delight</span>
+                        </h1>
+                        <p class="text-xl mb-8 max-w-2xl mx-auto lg:mx-0">
+                            Your ultimate destination for delicious vegetarian food, refreshing drinks, and delightful desserts. 
+                            Fast delivery guaranteed!
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="menu_bar/veg.html" class="bg-accent text-dark font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors ripple">
+                                <i class="fas fa-utensils mr-2"></i> Explore Menu
+                            </a>
+                            <a href="#about-creator" class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-dark transition-colors ripple">
+                                <i class="fas fa-user mr-2"></i> Meet the Creator
+                            </a>
+                        </div>
+                        
+                        <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-8">
+                            <div class="flex items-center">
+                                <div class="bg-white text-primary rounded-full p-3 mr-4">
+                                    <i class="fas fa-bolt text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg">Fast Delivery</p>
+                                    <p class="text-sm text-gray-300">Within 30 minutes</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-white text-primary rounded-full p-3 mr-4">
+                                    <i class="fas fa-leaf text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg">100% Vegetarian</p>
+                                    <p class="text-sm text-gray-300">Fresh ingredients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Content - Food Images -->
+                    <div class="lg:w-1/2 relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="food-card bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 border border-white border-opacity-20 transition-all duration-300 hover:border-opacity-40">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                                     alt="Healthy Salad" 
+                                     class="w-full h-48 object-cover rounded-lg mb-3">
+                                <h3 class="text-lg font-bold">Fresh Salads</h3>
+                                <p class="text-sm text-gray-300">Nutritious and delicious</p>
+                            </div>
+                            
+                            <div class="food-card bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 border border-white border-opacity-20 transition-all duration-300 hover:border-opacity-40 mt-8">
+                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1681&q=80" 
+                                     alt="Delicious Pizza" 
+                                     class="w-full h-48 object-cover rounded-lg mb-3">
+                                <h3 class="text-lg font-bold">Veg Pizzas</h3>
+                                <p class="text-sm text-gray-300">Wood-fired perfection</p>
+                            </div>
+                            
+                            <div class="food-card bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 border border-white border-opacity-20 transition-all duration-300 hover:border-opacity-40">
+                                <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1547&q=80" 
+                                     alt="Fresh Bread" 
+                                     class="w-full h-48 object-cover rounded-lg mb-3">
+                                <h3 class="text-lg font-bold">Artisan Breads</h3>
+                                <p class="text-sm text-gray-300">Freshly baked daily</p>
+                            </div>
+                            
+                            <div class="food-card bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 border border-white border-opacity-20 transition-all duration-300 hover:border-opacity-40 mt-8">
+                                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" 
+                                     alt="Dessert" 
+                                     class="w-full h-48 object-cover rounded-lg mb-3">
+                                <h3 class="text-lg font-bold">Sweet Desserts</h3>
+                                <p class="text-sm text-gray-300">Irresistible treats</p>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg w-40">
+                            <div class="flex items-center">
+                                <div class="bg-primary text-white p-2 rounded-full">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="font-bold text-dark dark:text-white">Popular</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">This Week</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Creator Section -->
+        <section id="about-creator" class="py-16 px-4 md:px-8 bg-white bg-opacity-10 backdrop-blur-sm">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- Creator Photo -->
+                    <div class="lg:w-1/3 flex justify-center">
+                        <div class="relative">
+                            <img src="food_img/Shivan1.jpg" 
+                                 alt="Creator" 
+                                 class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl floating">
+                            <div class="absolute -bottom-4 -right-4 bg-accent text-dark font-bold px-4 py-1 rounded-full shadow-lg">
+                                Creator
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Creator Info -->
+                    <div class="lg:w-2/3 text-center lg:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6">
+                            Meet <span class="gradient-text">The Creator</span>
+                        </h2>
+                        <p class="text-xl mb-6">
+                            Hi, I'm <span class="font-bold text-accent">Shivan Mishra</span>, the founder and creator of Foodie Delight. 
+                            As a passionate food enthusiast and web developer, I combined my two loves to create this platform.
+                        </p>
+                        <p class="text-lg mb-8">
+                            Our mission is to deliver delicious, high-quality vegetarian food with exceptional service. 
+                            Every dish on our menu is carefully crafted to provide a memorable dining experience.
+                        </p>
+                        
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                            <a href="https://www.linkedin.com/in/shivan-mishra-b7156a317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-white text-dark font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors ripple flex items-center">
+                                <i class="fab fa-linkedin-in mr-2"></i> Connect on LinkedIn
+                            </a>
+                            <a href="https://github.com/shivan632" target="_blank" class="bg-dark text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors ripple flex items-center">
+                                <i class="fab fa-github mr-2"></i> View GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-16 px-4 md:px-8">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold font-serif mb-4">
+                        Why Choose <span class="gradient-text">Foodie Delight</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                        Discover what makes our food delivery service special
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 hover:border-opacity-40 transition-all transform hover:-translate-y-2">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-bolt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Lightning Fast Delivery</h3>
+                        <p class="text-gray-300 text-center">Get your food delivered in under 30 minutes or it's free!</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 hover:border-opacity-40 transition-all transform hover:-translate-y-2">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-leaf text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">100% Vegetarian</h3>
+                        <p class="text-gray-300 text-center">All our dishes are made with fresh, high-quality vegetarian ingredients.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 hover:border-opacity-40 transition-all transform hover:-translate-y-2">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-heart text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Made with Love</h3>
+                        <p class="text-gray-300 text-center">Every dish is prepared with care and attention to detail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 px-4 md:px-8 bg-gradient-to-r from-primary to-secondary">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif mb-6">Ready to Experience <span class="text-white">Foodie Delight</span>?</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of satisfied customers enjoying our delicious food.</p>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">For visiting my Food Website <span class="font-bold text-accent">Foodie Delight</span> press on <u style="color: black;"><i><b>Get Started</b></i></u> button.</p>
+                
+                <a href="home.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 ease-in-out">
+                    <i class="fas fa-arrow-right"></i> Get Started
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-12 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <i class="fas fa-utensils text-3xl text-primary mr-3"></i>
+                    <span class="text-2xl font-bold text-white">Foodie<span class="text-primary">Delight</span></span>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Foodie Delight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-secondary">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loading screen
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 1500);
+
+            // Initialize particle.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // Scroll to top button
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.remove('opacity-0', 'invisible');
+                    scrollToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    scrollToTopButton.classList.remove('opacity-100', 'visible');
+                    scrollToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            scrollToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Ripple effect for buttons
+            const buttons = document.querySelectorAll('.ripple');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-effect';
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 1000);
+                });
+            });
+
+            // Smooth scrolling for anchor links that start with #
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add floating particles on click
+            document.addEventListener('click', function(e) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${e.clientX}px`;
+                particle.style.top = `${e.clientY}px`;
+                particle.style.width = `${Math.random() * 10 + 5}px`;
+                particle.style.height = particle.style.width;
+                document.body.appendChild(particle);
+
+                // Animate particle
+                const animation = particle.animate([
+                    { transform: 'translate(0, 0)', opacity: 1 },
+                    { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`, opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                });
+
+                animation.onfinish = () => particle.remove();
+            });
+        });
+    </script>
 </body>
 </html>
