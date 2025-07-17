@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,189 +6,240 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refreshing Drinks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="drink.css" media="screen" type="text/css">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+    
+    <!-- Floating Drink Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 100px; height: 100px; background-image: url('/food_img/image copy 13.png'); top: 10%; left: 5%; animation: float 6s ease-in-out infinite;"></div>
+        <div class="floating-element" style="width: 80px; height: 80px; background-image: url('/food_img/image copy 14.png'); top: 70%; left: 10%; animation: float 8s ease-in-out infinite 2s;"></div>
+        <div class="floating-element" style="width: 120px; height: 120px; background-image: url('/food_img/image copy 15.png'); top: 30%; right: 5%; animation: float 7s ease-in-out infinite 1s;"></div>
+        <div class="floating-element" style="width: 90px; height: 90px; background-image: url('/food_img/image copy 16.png'); bottom: 10%; right: 15%; animation: float 9s ease-in-out infinite 0.5s;"></div>
+        <div class="floating-element" style="width: 70px; height: 70px; background-image: url('/food_img/image copy 17.png'); top: 20%; left: 30%; animation: float 5s ease-in-out infinite 1.5s;"></div>
+        <div class="floating-element" style="width: 110px; height: 110px; background-image: url('/food_img/image copy 18.png'); bottom: 30%; right: 30%; animation: float 10s ease-in-out infinite;"></div>
+    </div>
+
     <header>
-        <h1><i class="fas fa-coffee"></i> Refreshing Drinks</h1>
-        <p>Cool down with our collection of refreshing beverages!</p>
-        <div class="menu_nav">
-            <nav>
-                <a href="veg.html"><i class="fas fa-carrot"></i>Vegetarian Food</a>
-                <a href="drink.html"><i class="fas fa-coffee"></i>Refreshing Drinks</a>
-                <a href="desserts.html"><i class="fas fa-ice-cream"></i></i> Delicious Desserts</a>
-            </nav>
+        <div class="container">
+            <h1><i class="fas fa-glass-whiskey icon-3d"></i> Refreshing Drinks</h1>
+            <p>Cool down with our collection of refreshing beverages!</p>
+            <div class="menu_nav">
+                <nav>
+                    <a href="veg.html"><i class="fas fa-carrot icon-3d"></i>Vegetarian</a>
+                    <a href="drink.html"><i class="fas fa-glass-whiskey icon-3d"></i>Drinks</a>
+                    <a href="desserts.html"><i class="fas fa-ice-cream icon-3d"></i>Desserts</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-   <!-- Horizontal Food Menu -->
-   <div class="food-menu">
-    <div class="menu-item">
-        <img src="\food_img\image copy 13.png" alt="Salad">
-        <p>Cold Coffee</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 14.png" alt="Pasta">
-        <p>Mango Smoothie</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 15.png" alt="Pizza">
-        <p>Green Tea</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 16.png" alt="Burger">
-        <p>Mint Lemonade</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 17.png" alt="Stir Fry">
-        <p>Strawberry Shake</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 18.png" alt="Soup">
-        <p>Iced Mocha</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 19.png" alt="Smoothie">
-        <p>Orange Juice</p>
-    </div>
-    <div class="menu-item">
-        <img src="\food_img\image copy 20.png" alt="Tofu Bowl">
-        <p>Blueberry Smoothie</p>
-    </div>
-</div>
-
-    <!-- Food Items Section -->
-    <div class="container my-5">
-        <div class="row">
-            <section style="padding: 20px; text-align: center; max-width: 1000px; margin: 0 auto;">
-                <div class="food-grid" style="display: grid; grid-template-columns: repeat(4, minmax(200px, 1fr)); gap: 20px;">
-                    <!-- Food Item 1 -->
-                    <div class="food-item" data-id="1" data-name="Cold Coffee" data-price="50">
-                        <img src="\food_img\image copy 13.png" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-mug-hot"></i>Cold Coffee</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Chilled coffee with a perfect blend of milk and cream.</p>
-                        <p class="text-success"><strong>Price: ₹50.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-                    
-                    <!-- Food Item 2 -->
-                    <div class="food-item" data-id="2" data-name="Mango Smoothie" data-price="100">
-                        <img src="\food_img\image copy 14.png" alt="Burger" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-blender"></i> Mango Smoothie</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">A creamy smoothie made from ripe mangoes.</p>
-                        <p class="text-success"><strong>Price: ₹100.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-                    
-                    <!-- Food Item 3 -->
-                    <div class="food-item" data-id="3" data-name="Green Tea" data-price="50">
-                        <img src="\food_img\image copy 15.png" alt="Pasta" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-leaf"></i> Green Tea</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">A hot cup of antioxidant-rich green tea.</p>
-                        <p class="text-success"><strong>Price: ₹50.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-                    
-                    <!-- Food Item 4 -->
-                    <div class="food-item" data-id="4" data-name="Mint Lemonade" data-price="30">
-                        <img src="\food_img\image copy 16.png" alt="Salad" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-tint"></i> Mint Lemonade</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">A refreshing blend of lemon and fresh mint leaves.</p>
-                        <p class="text-success"><strong>Price: ₹30.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-            
-                    <!-- Food Item 5 -->
-                    <div class="food-item" data-id="5" data-name="Strawberry Shake" data-price="80">
-                        <img src="\food_img\image copy 17.png" alt="Vegetable Soup" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-seedling"></i> Strawberry Shake</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Sweet and creamy strawberry milkshake.</p>
-                        <p class="text-success"><strong>Price: ₹80.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-            
-                    <!-- Food Item 6 -->
-                    <div class="food-item" data-id="6" data-name="Iced Mocha" data-price="90">
-                        <img src="\food_img\image copy 18.png" alt="Fruit Smoothie" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-coffee"></i> Iced Mocha</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Rich mocha with ice for a chilled treat.</p>
-                        <p class="text-success"><strong>Price: ₹90.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-            
-                    <!-- Food Item 7 -->
-                    <div class="food-item" data-id="7" data-name="Orange Juice" data-price="40">
-                        <img src="\food_img\image copy 19.png" alt="Veggie Wrap" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-tint"></i> Orange Juice</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Freshly squeezed orange juice, full of vitamins.</p>
-                        <p class="text-success"><strong>Price: ₹40.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-            
-                    <!-- Food Item 8 -->
-                    <div class="food-item" data-id="8" data-name=" Blueberry Smoothie" data-price="200">
-                        <img src="\food_img\image copy 20.png" alt="Cheese Sandwich" style="height: 120px; width: 100%; object-fit: cover;">
-                        <h5 class="card-title"><i class="fas fa-blender"></i> Blueberry Smoothie</h5>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Healthy and delicious blueberry smoothie.</p>
-                        <p class="text-success"><strong>Price: ₹200.00</strong></p>
-                        <div class="quantity-controls" style="margin-bottom: 10px;">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">1</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="order-btn" style="padding: 6px 12px; font-size: 0.8rem; width: auto;"><i class="fas fa-shopping-cart"></i>Order Now</button>
-                    </div>
-                </div>
-            </section>            
+    <!-- Drink Menu Carousel -->
+    <div class="food-menu-container">
+        <h2 class="section-title">Our Popular Choices</h2>
+        <div class="food-menu">
+            <div class="menu-item">
+                <img src="/food_img/image copy 13.png" alt="Cold Coffee">
+                <p>Cold Coffee</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 14.png" alt="Mango Smoothie">
+                <p>Mango Smoothie</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 15.png" alt="Green Tea">
+                <p>Green Tea</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 16.png" alt="Mint Lemonade">
+                <p>Mint Lemonade</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 17.png" alt="Strawberry Shake">
+                <p>Strawberry Shake</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 18.png" alt="Iced Mocha">
+                <p>Iced Mocha</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 19.png" alt="Orange Juice">
+                <p>Orange Juice</p>
+            </div>
+            <div class="menu-item">
+                <img src="/food_img/image copy 20.png" alt="Blueberry Smoothie">
+                <p>Blueberry Smoothie</p>
+            </div>
         </div>
     </div>
 
-    <a href="/order.html" class="fixed-btn"><i class="fas fa-plus"></i> Order</a>
+    <!-- Drink Items Section -->
+    <div class="food-grid-container">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="food-grid">
+            <!-- Drink Item 1 -->
+            <div class="food-item" data-id="9" data-name="Cold Coffee" data-price="50">
+                <img src="/food_img/image copy 13.png" class="food-item-img" alt="Cold Coffee">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-mug-hot me-2" style="color: var(--primary-color);"></i>Cold Coffee</h3>
+                    <p>Chilled coffee with a perfect blend of milk and cream.</p>
+                    <span class="food-item-price">₹50.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 2 -->
+            <div class="food-item" data-id="10" data-name="Mango Smoothie" data-price="100">
+                <img src="/food_img/image copy 14.png" class="food-item-img" alt="Mango Smoothie">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-blender me-2" style="color: var(--primary-color);"></i>Mango Smoothie</h3>
+                    <p>A creamy smoothie made from ripe mangoes.</p>
+                    <span class="food-item-price">₹100.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 3 -->
+            <div class="food-item" data-id="11" data-name="Green Tea" data-price="50">
+                <img src="/food_img/image copy 15.png" class="food-item-img" alt="Green Tea">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-leaf me-2" style="color: var(--primary-color);"></i>Green Tea</h3>
+                    <p>A hot cup of antioxidant-rich green tea.</p>
+                    <span class="food-item-price">₹50.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 4 -->
+            <div class="food-item" data-id="12" data-name="Mint Lemonade" data-price="30">
+                <img src="/food_img/image copy 16.png" class="food-item-img" alt="Mint Lemonade">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-tint me-2" style="color: var(--primary-color);"></i>Mint Lemonade</h3>
+                    <p>A refreshing blend of lemon and fresh mint leaves.</p>
+                    <span class="food-item-price">₹30.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 5 -->
+            <div class="food-item" data-id="13" data-name="Strawberry Shake" data-price="80">
+                <img src="/food_img/image copy 17.png" class="food-item-img" alt="Strawberry Shake">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-seedling me-2" style="color: var(--primary-color);"></i>Strawberry Shake</h3>
+                    <p>Sweet and creamy strawberry milkshake.</p>
+                    <span class="food-item-price">₹80.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 6 -->
+            <div class="food-item" data-id="14" data-name="Iced Mocha" data-price="90">
+                <img src="/food_img/image copy 18.png" class="food-item-img" alt="Iced Mocha">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-coffee me-2" style="color: var(--primary-color);"></i>Iced Mocha</h3>
+                    <p>Rich mocha with ice for a chilled treat.</p>
+                    <span class="food-item-price">₹90.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 7 -->
+            <div class="food-item" data-id="15" data-name="Orange Juice" data-price="40">
+                <img src="/food_img/image copy 19.png" class="food-item-img" alt="Orange Juice">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-tint me-2" style="color: var(--primary-color);"></i>Orange Juice</h3>
+                    <p>Freshly squeezed orange juice, full of vitamins.</p>
+                    <span class="food-item-price">₹40.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Drink Item 8 -->
+            <div class="food-item" data-id="16" data-name="Blueberry Smoothie" data-price="200">
+                <img src="/food_img/image copy 20.png" class="food-item-img" alt="Blueberry Smoothie">
+                <div class="food-item-content">
+                    <h3><i class="fas fa-blender me-2" style="color: var(--primary-color);"></i>Blueberry Smoothie</h3>
+                    <p>Healthy and delicious blueberry smoothie.</p>
+                    <span class="food-item-price">₹200.00</span>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="order-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="/order.html" class="fixed-btn">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
 
     <footer>
-        <p>&copy; 2025 Vegetarian Delights. All rights reserved.</p>
-        <p>Contact us at: <a href="mailto:info@vegdelights.com">info@vegdelights.com</a></p>
-        <p>Follow us on 
-            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>, 
-            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>, and 
-            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>.
-        </p>
+        <div class="footer-content">
+            <h3>Refreshing Drinks</h3>
+            <p>Cool, refreshing, and full of flavor.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Our Menu</a>
+                <a href="#">Nutrition Info</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Vegetarian Delights. All rights reserved.</p>
+                <p>Contact us at: <a href="mailto:info@vegdelights.com" style="color: var(--accent-color);">info@vegdelights.com</a></p>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -217,44 +269,177 @@
             
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
-            alert(`${quantity} ${itemName}(s) added to cart!`);
+            
+            // Create and show notification
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.backgroundColor = 'var(--primary-color)';
+            notification.style.color = 'white';
+            notification.style.padding = '12px 24px';
+            notification.style.borderRadius = '50px';
+            notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+            notification.style.zIndex = '1000';
+            notification.style.animation = 'fadeIn 0.3s, fadeOut 0.3s 2.7s forwards';
+            notification.innerHTML = `<i class="fas fa-check-circle me-2"></i> ${quantity} ${itemName}(s) added to cart!`;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after animation
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+            
+            // Add pulse animation to cart button
+            const cartBtn = document.querySelector('.fixed-btn');
+            cartBtn.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+                cartBtn.style.animation = '';
+            }, 500);
         }
         
         // Event delegation for order buttons and quantity controls
         document.addEventListener('click', function(e) {
             // Order button click
-            if (e.target.classList.contains('order-btn')) {
-                const foodItem = e.target.closest('.food-item');
+            if (e.target.classList.contains('order-btn') || e.target.closest('.order-btn')) {
+                const btn = e.target.classList.contains('order-btn') ? e.target : e.target.closest('.order-btn');
+                const foodItem = btn.closest('.food-item');
                 const id = foodItem.dataset.id;
                 const name = foodItem.dataset.name;
                 const price = parseFloat(foodItem.dataset.price);
                 const quantity = parseInt(foodItem.querySelector('.quantity').textContent);
                 
                 addToCart(id, name, price, quantity);
+                
+                // Add button animation
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 200);
             }
             
             // Plus button click
-            if (e.target.classList.contains('plus')) {
-                const quantityElement = e.target.parentElement.querySelector('.quantity');
+            if (e.target.classList.contains('plus') || e.target.closest('.plus')) {
+                const btn = e.target.classList.contains('plus') ? e.target : e.target.closest('.plus');
+                const quantityElement = btn.parentElement.querySelector('.quantity');
                 quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+                
+                // Button animation
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 200);
             }
             
             // Minus button click
-            if (e.target.classList.contains('minus')) {
-                const quantityElement = e.target.parentElement.querySelector('.quantity');
+            if (e.target.classList.contains('minus') || e.target.closest('.minus')) {
+                const btn = e.target.classList.contains('minus') ? e.target : e.target.closest('.minus');
+                const quantityElement = btn.parentElement.querySelector('.quantity');
                 const currentQuantity = parseInt(quantityElement.textContent);
-                if (currentQuantity > 1) {
+                                if (currentQuantity > 1) {
                     quantityElement.textContent = currentQuantity - 1;
+                    
+                    // Button animation
+                    btn.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        btn.style.transform = '';
+                    }, 200);
                 }
             }
         });
-        
+
         // Initialize cart count on page load
         updateCartCount();
+
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Floating elements animation enhancements
+        document.addEventListener('mousemove', function(e) {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach(element => {
+                const speed = parseFloat(element.style.width) / 100;
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+
+        // Add hover effects to menu items in the carousel
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-10px) scale(1.1)';
+                item.querySelector('img').style.transform = 'rotateY(20deg) scale(1.2)';
+                item.querySelector('p').style.color = 'var(--accent-color)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = '';
+                item.querySelector('img').style.transform = '';
+                item.querySelector('p').style.color = 'white';
+            });
+        });
+
+        // Add scroll animation to food items
+        const foodItems = document.querySelectorAll('.food-item');
+        
+        function checkScroll() {
+            foodItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight * 0.75) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initial check
+        checkScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+
+        // Add animation to section titles
+        const sectionTitles = document.querySelectorAll('.section-title');
+        sectionTitles.forEach(title => {
+            title.addEventListener('mouseenter', () => {
+                title.style.animation = 'pulse 0.5s ease';
+            });
+            
+            title.addEventListener('animationend', () => {
+                title.style.animation = '';
+            });
+        });
+
+        // Add click effect to social links
+        const socialLinks = document.querySelectorAll('.social-links a');
+        socialLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                link.style.transform = 'translateY(-5px) rotateY(180deg) scale(1.2)';
+                setTimeout(() => {
+                    link.style.transform = '';
+                }, 500);
+            });
+        });
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
