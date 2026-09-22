@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile | Foodie Delight</title>
+    <meta name="description" content="Manage your Foodie Delight profile and delivery details.">
+    <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="account-page">
+    <main class="account-shell">
+        <nav class="account-nav" aria-label="Account navigation">
+            <a class="account-logo" href="home.html"><i class="fas fa-utensils" aria-hidden="true"></i>Foodie<span>Delight</span></a>
+            <div class="account-nav-links">
+                <a href="home.html"><i class="fas fa-house" aria-hidden="true"></i> Home</a>
+                <a href="order.html"><i class="fas fa-bag-shopping" aria-hidden="true"></i> Orders</a>
+                <a href="profile.html" aria-current="page"><i class="fas fa-user" aria-hidden="true"></i> Profile</a>
+                <a href="settings.html"><i class="fas fa-sliders" aria-hidden="true"></i> Settings</a>
+            </div>
+        </nav>
+
+        <header class="account-heading">
+            <div class="account-kicker">Your account</div>
+            <h1>Make every order feel like yours.</h1>
+            <p>Keep your delivery details ready, so your next favourite meal arrives without the extra steps.</p>
+        </header>
+
+        <section class="account-layout">
+            <aside class="account-card profile-card">
+                <div class="profile-avatar" data-profile-avatar aria-hidden="true">F</div>
+                <h2 data-profile-name>Foodie Guest</h2>
+                <p data-profile-email>guest@foodiedelight.example</p>
+                <div class="profile-stat"><span>Orders placed</span><strong>0</strong></div>
+                <div class="profile-stat"><span>Saved addresses</span><strong>1</strong></div>
+                <button class="account-button danger" type="button" data-logout><i class="fas fa-right-from-bracket" aria-hidden="true"></i> Log out</button>
+            </aside>
+
+            <section class="account-card">
+                <h2>Personal details</h2>
+                <form id="profile-form" class="account-form">
+                    <label>Full name<input id="profile-name" type="text" autocomplete="name" placeholder="Your name" required></label>
+                    <label>Email address<input id="profile-email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+                    <label>Phone number<input id="profile-phone" type="tel" autocomplete="tel" placeholder="+91 00000 00000"></label>
+                    <label>Preferred city<input id="profile-city" type="text" autocomplete="address-level2" placeholder="Your city"></label>
+                    <label class="full-width">Default delivery address<textarea id="profile-address" autocomplete="street-address" placeholder="Add your delivery address"></textarea></label>
+                    <div class="full-width"><button class="account-button" type="submit"><i class="fas fa-check" aria-hidden="true"></i> Save profile</button></div>
+                </form>
+            </section>
+        </section>
+    </main>
+    <script src="account.js"></script>
+    <script src="site.js" defer></script>
+</body>
+</html>

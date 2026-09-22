@@ -63,11 +63,17 @@ select:focus-visible {
 }
 
 @keyframes site-toast-in {
-    to { transform: translate(-50%, 0); opacity: 1; }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
 }
 
 @keyframes site-toast-out {
-    to { transform: translate(-50%, 1rem); opacity: 0; }
+    to {
+        transform: translate(-50%, 1rem);
+        opacity: 0;
+    }
 }
 
 [data-cart-count] {
@@ -85,7 +91,9 @@ select:focus-visible {
 }
 
 @keyframes cart-count-pop {
-    50% { transform: scale(1.25); }
+    50% {
+        transform: scale(1.25);
+    }
 }
 
 .motion-reveal {
@@ -109,7 +117,9 @@ select:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    html {
+        scroll-behavior: auto;
+    }
 
     *,
     *::before,
@@ -131,5 +141,26 @@ select:focus-visible {
         bottom: 1rem;
         width: calc(100vw - 2rem);
         border-radius: 14px;
+    }
+}
+
+.three-scene {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.72;
+}
+
+.three-scene canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .three-scene {
+        display: none;
     }
 }

@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie Delight Assistant</title>
-    <link rel="stylesheet" href="site.css">
-    <link rel="stylesheet" href="chat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <main class="chat-page">
-        <a class="chat-back-link" href="home.html"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Foodie Delight</a>
-        <section id="chatbot-widget" class="chatbot-page-widget is-open" aria-labelledby="chat-title">
-            <header class="chatbot-header">
-                <div class="chatbot-title">
-                    <div class="chatbot-avatar" aria-hidden="true"><i class="fas fa-utensils"></i></div>
-                    <div><h1 id="chat-title">Foodie Delight Assistant</h1><p>Quick answers about food and orders</p></div>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Foodie Delight Assistant</title>
+        <link rel="stylesheet" href="site.css">
+        <link rel="stylesheet" href="chat.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+
+    <body>
+        <main class="chat-page">
+            <a class="chat-back-link" href="home.html"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to
+                Foodie Delight</a>
+            <section id="chatbot-widget" class="chatbot-page-widget is-open" aria-labelledby="chat-title">
+                <header class="chatbot-header">
+                    <div class="chatbot-title">
+                        <div class="chatbot-avatar" aria-hidden="true"><i class="fas fa-utensils"></i></div>
+                        <div>
+                            <h1 id="chat-title">Foodie Delight Assistant</h1>
+                            <p>Quick answers about food and orders</p>
+                        </div>
+                    </div>
+                    <a class="chat-close-link" href="home.html" aria-label="Close chat assistant"><i
+                            class="fas fa-times" aria-hidden="true"></i></a>
+                </header>
+                <div id="chat-messages" class="chat-messages" aria-live="polite">
+                    <div class="message bot-message">
+                        <div class="message-bubble">Hi there. I can help with our menu, delivery times, opening hours,
+                            and orders.</div>
+                    </div>
+                    <div class="quick-questions" aria-label="Suggested questions">
+                        <button type="button" class="quick-question">What's on the menu?</button>
+                        <button type="button" class="quick-question">How long is delivery?</button>
+                        <button type="button" class="quick-question">What are your hours?</button>
+                    </div>
                 </div>
-                <a class="chat-close-link" href="home.html" aria-label="Close chat assistant"><i class="fas fa-times" aria-hidden="true"></i></a>
-            </header>
-            <div id="chat-messages" class="chat-messages" aria-live="polite">
-                <div class="message bot-message"><div class="message-bubble">Hi there. I can help with our menu, delivery times, opening hours, and orders.</div></div>
-                <div class="quick-questions" aria-label="Suggested questions">
-                    <button type="button" class="quick-question">What's on the menu?</button>
-                    <button type="button" class="quick-question">How long is delivery?</button>
-                    <button type="button" class="quick-question">What are your hours?</button>
+                <div id="typing-indicator" class="typing-indicator" aria-label="Assistant is typing">
+                    <span></span><span></span><span></span>
                 </div>
-            </div>
-            <div id="typing-indicator" class="typing-indicator" aria-label="Assistant is typing">
-                <span></span><span></span><span></span>
-            </div>
-            <form id="chatbot-form" class="chatbot-input-area">
-                <label class="sr-only" for="chatbot-input">Message</label>
-                <input type="text" id="chatbot-input" placeholder="Ask about food or delivery" autocomplete="off">
-                <button type="submit" id="chatbot-submit" aria-label="Send message"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
-            </form>
-        </section>
-    </main>
-    <script src="chat.js"></script>
-</body>
+                <form id="chatbot-form" class="chatbot-input-area">
+                    <label class="sr-only" for="chatbot-input">Message</label>
+                    <input type="text" id="chatbot-input" placeholder="Ask about food or delivery" autocomplete="off">
+                    <button type="submit" id="chatbot-submit" aria-label="Send message"><i class="fas fa-paper-plane"
+                            aria-hidden="true"></i></button>
+                </form>
+            </section>
+        </main>
+        <script src="chat.js"></script>
+    </body>
+
 </html>

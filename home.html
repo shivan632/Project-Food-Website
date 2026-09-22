@@ -106,11 +106,17 @@
                             class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
                                 class="fas fa-envelope"></i> Contact</a>
                         <a href="menu_bar/veg.html"
-                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"
-                            ><i class="fas fa-list"></i> Menu</a>
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-list"></i> Menu</a>
                         <a href="order.html"
                             class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
                                 class="fas fa-shopping-cart"></i> Order</a>
+                        <a href="profile.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"
+                            class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
+                                class="fas fa-sliders"></i> Settings</a>
 
                         <!-- Add login link here -->
                         <a href="login.html"
@@ -131,13 +137,14 @@
                         <a href="order.html"
                             class="relative ml-4 p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors">
                             <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                            <span
-                                data-cart-count class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                            <span data-cart-count
+                                class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
                         </a>
                     </nav>
 
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none" aria-label="Open navigation menu">
+                    <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none"
+                        aria-label="Open navigation menu">
                         <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -157,6 +164,12 @@
                         class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Menu</a>
                     <a href="order.html"
                         class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2">Order</a>
+                    <a href="profile.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-user mr-2"></i>Profile</a>
+                    <a href="settings.html"
+                        class="text-dark dark:text-white hover:text-primary transition-colors font-medium py-2"><i
+                            class="fas fa-sliders mr-2"></i>Settings</a>
 
                     <!-- Login link for mobile -->
                     <a href="login.html"
@@ -176,9 +189,9 @@
                         class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
                         <i class="fas fa-shopping-cart mr-2"></i>
                         <span>Cart</span>
-                        <span
-                                data-cart-count class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                            </a>
+                        <span data-cart-count
+                            class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
                 </div>
             </div>
         </header>
@@ -889,12 +902,14 @@
                         <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                         <ul class="space-y-2">
                             <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                            <li><a href="menu_bar/veg.html" class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
+                            <li><a href="menu_bar/veg.html"
+                                    class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
                             <li><a href="#features"
                                     class="text-gray-400 hover:text-white transition-colors">Features</a></li>
                             <li><a href="#testimonials"
                                     class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                            <li><a href="contact.html"
+                                    class="text-gray-400 hover:text-white transition-colors">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -1174,8 +1189,8 @@
                     <i class="fas fa-chevron-down text-xs"></i>
                 </button>
                 <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Orders</a>
+                    <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+                    <a href="order.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Orders</a>
                     <a href="#" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</a>
                 </div>
             `;
@@ -1201,4 +1216,3 @@
     </body>
 
 </html>
-

@@ -179,6 +179,65 @@
         elements.forEach((element) => observer.observe(element));
     }
 
+    function initThreeScene() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !document.body) return;
+        const start = () => {
+            if (!window.THREE || document.querySelector('.three-scene')) return;
+            const container = document.createElement('div');
+            container.className = 'three-scene';
+            container.setAttribute('aria-hidden', 'true');
+            document.body.prepend(container);
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.z = 6;
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            const group = new THREE.Group();
+            const material = new THREE.MeshStandardMaterial({ color: 0xd9573f, roughness: 0.42, metalness: 0.12 });
+            const accent = new THREE.MeshStandardMaterial({ color: 0xf4c95d, roughness: 0.5, metalness: 0.08 });
+            const plate = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.08, 16, 64), accent);
+            const dish = new THREE.Mesh(new THREE.SphereGeometry(0.72, 32, 18), material);
+            dish.scale.y = 0.32;
+            const garnish = new THREE.Mesh(new THREE.IcosahedronGeometry(0.22, 1), new THREE.MeshStandardMaterial({ color: 0x2f7d68 }));
+            garnish.position.set(0.32, 0.24, 0.12);
+            group.add(plate, dish, garnish);
+            group.position.set(window.innerWidth < 700 ? 1.55 : 3.1, 1.6, -1);
+            scene.add(group);
+            scene.add(new THREE.AmbientLight(0xffffff, 1.7));
+            const light = new THREE.PointLight(0xf4c95d, 2.5, 12);
+            light.position.set(2, 3, 4);
+            scene.add(light);
+
+            const resize = () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                group.position.x = window.innerWidth < 700 ? 1.55 : 3.1;
+            };
+            window.addEventListener('resize', resize);
+            const animate = () => {
+                group.rotation.y += 0.006;
+                group.rotation.x = Math.sin(performance.now() * 0.0007) * 0.08;
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+            };
+            animate();
+        };
+
+        if (window.THREE) start();
+        else {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+            script.onload = start;
+            script.onerror = () => {};
+            document.head.appendChild(script);
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         updateCartBadges();
         initTheme();
@@ -188,6 +247,7 @@
         initHomepageCart();
         initControlLabels();
         initReveal();
+        initThreeScene();
     });
 
     window.addEventListener('storage', updateCartBadges);
