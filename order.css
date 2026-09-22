@@ -569,6 +569,20 @@
                 flex-direction: column;
             }
         }
+
+        .payment-method {
+            font: inherit;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bg-element,
+            .empty-cart i,
+            .card-3d {
+                animation: none;
+                transition: none;
+                transform: none;
+            }
+        }
         
         @media (max-width: 576px) {
             .page-title {

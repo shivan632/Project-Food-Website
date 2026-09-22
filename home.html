@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -10,6 +10,7 @@
 
         <!-- Css Link -->
         <link rel="stylesheet" href="home.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="site.css" media="screen" type="text/css">
 
         <!-- Favicon -->
         <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
@@ -106,7 +107,7 @@
                                 class="fas fa-envelope"></i> Contact</a>
                         <a href="menu_bar/veg.html"
                             class="text-dark dark:text-white hover:text-primary transition-colors font-medium"
-                            target="_blank"><i class="fas fa-list"></i> Menu</a>
+                            ><i class="fas fa-list"></i> Menu</a>
                         <a href="order.html"
                             class="text-dark dark:text-white hover:text-primary transition-colors font-medium"><i
                                 class="fas fa-shopping-cart"></i> Order</a>
@@ -129,15 +130,15 @@
                         <!-- Cart Button -->
                         <a href="order.html"
                             class="relative ml-4 p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                             <span
-                                class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                                data-cart-count class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
                         </a>
                     </nav>
 
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="mobile-menu-button" class="md:hidden text-dark dark:text-white focus:outline-none" aria-label="Open navigation menu">
+                        <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -171,13 +172,13 @@
                         </button>
                     </div>
 
-                    <button
+                    <a href="order.html"
                         class="relative p-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors flex items-center justify-center">
                         <i class="fas fa-shopping-cart mr-2"></i>
                         <span>Cart</span>
                         <span
-                            class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">7</span>
-                    </button>
+                                data-cart-count class="absolute -top-1 -right-1 bg-accent text-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                            </a>
                 </div>
             </div>
         </header>
@@ -199,10 +200,10 @@
                             and delightful desserts. Fast delivery guaranteed!</p>
 
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                            <button
+                            <a href="order.html"
                                 class="bg-accent text-dark font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors ripple flex items-center justify-center">
-                                <i class="fas fa-shopping-cart mr-2"></i> <a href="order.html">Order Now</a>
-                            </button>
+                                <i class="fas fa-shopping-cart mr-2"></i> Order Now
+                            </a>
                             <button
                                 class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-dark transition-colors ripple flex items-center justify-center">
                                 <i class="fas fa-play-circle mr-2"></i> Watch Video
@@ -284,29 +285,29 @@
             </div>
             <div class="container1">
                 <div class="food-block">
-                    <img src="/food_img\image.png" alt="Food Image">
+                    <img src="food_img/image.png" alt="Vegetarian food">
                     <div class="food-details">
                         <h3><i class="fas fa-pizza-slice"></i> Vegitarian Food</h3>
-                        <p>Wholesome & Delicious Vegetarian Food – Fresh, Flavorful, and 100% Plant-Based!</p>
-                        <a href="menu_bar\veg.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                        <p>Wholesome & Delicious Vegetarian Food â€“ Fresh, Flavorful, and 100% Plant-Based!</p>
+                        <a href="menu_bar/veg.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
                     </div>
                 </div>
 
                 <div class="food-block">
-                    <img src="/food_img\image copy 17.png" alt="Food Image">
+                    <img src="food_img/image copy 17.png" alt="Refreshing shakes">
                     <div class="food-details">
                         <h3><i class="fas fa-tint"></i> Shakes</h3>
                         <p>Creamy, flavorful, and 100% plant-based goodness in every sip!</p>
-                        <a href="menu_bar\drink.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                        <a href="menu_bar/drink.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
                     </div>
                 </div>
 
                 <div class="food-block">
-                    <img src="/food_img\image copy 24.png" alt="Food Image">
+                    <img src="food_img/image copy 24.png" alt="Desserts">
                     <div class="food-details">
                         <h3><i class="fas fa-ice-cream"></i> Desserts</h3>
                         <p>Sweet, satisfying treats made with pure, natural ingredients.</p>
-                        <a href="menu_bar\desserts.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                        <a href="menu_bar/desserts.html"><i class="fas fa-shopping-cart"></i> Order Now</a>
                     </div>
                 </div>
             </div>
@@ -329,7 +330,7 @@
                     <button
                         class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Main
                         Dishes</button>
-                    <button href="menu_bar/drink.html"
+                    <button type="button"
                         class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Drinks</button>
                     <button
                         class="px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-white font-medium hover:bg-primary hover:text-white ripple transition-all">Desserts</button>
@@ -362,7 +363,7 @@
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.8 (120)</span>
                                 </div>
                                 <button
-                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple home-add-to-cart">Add
                                     to Cart</button>
                             </div>
                         </div>
@@ -391,7 +392,7 @@
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.7 (95)</span>
                                 </div>
                                 <button
-                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple home-add-to-cart">Add
                                     to Cart</button>
                             </div>
                         </div>
@@ -420,7 +421,7 @@
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.9 (75)</span>
                                 </div>
                                 <button
-                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple home-add-to-cart">Add
                                     to Cart</button>
                             </div>
                         </div>
@@ -446,7 +447,7 @@
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.8 (110)</span>
                                 </div>
                                 <button
-                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple home-add-to-cart">Add
                                     to Cart</button>
                             </div>
                         </div>
@@ -472,7 +473,7 @@
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.9 (150)</span>
                                 </div>
                                 <button
-                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple home-add-to-cart">Add
                                     to Cart</button>
                             </div>
                         </div>
@@ -498,7 +499,7 @@
                                     <span class="ml-1 text-gray-700 dark:text-gray-300">4.7 (85)</span>
                                 </div>
                                 <button
-                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple">Add
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary transition-colors ripple home-add-to-cart">Add
                                     to Cart</button>
                             </div>
                         </div>
@@ -586,7 +587,7 @@
                                 <p class="text-gray-600">
                                     Made with fresh cream, garlic, and a touch of nutmeg, this classic Italian dish is a
                                     comfort food favorite.
-                                    Add sautéed mushrooms or spinach for an extra burst of flavor.
+                                    Add sautÃ©ed mushrooms or spinach for an extra burst of flavor.
                                 </p>
                             </div>
                             <a href="menu_bar/veg.html"
@@ -634,7 +635,7 @@
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
                                     Contains L-theanine for calm focus and catechins for heart health. For best flavor,
-                                    steep at 175°F (80°C) for 2-3 minutes to avoid bitterness.
+                                    steep at 175Â°F (80Â°C) for 2-3 minutes to avoid bitterness.
                                 </p>
                             </div>
                             <a href="menu_bar/drink.html"
@@ -652,7 +653,7 @@
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Ice Cream Sundae</h4>
                             <p class="text-gray-600 mt-1">
-                                Indulge in a classic ice cream sundae—cool, creamy scoops topped with syrup, whipped
+                                Indulge in a classic ice cream sundaeâ€”cool, creamy scoops topped with syrup, whipped
                                 cream, and a cherry for the perfect sweet treat.
                             </p>
                             <div class="extra-content mt-2">
@@ -677,7 +678,7 @@
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-800">Chocolate Lava Cake</h4>
                             <p class="text-gray-600 mt-1">
-                                A warm, rich chocolate cake with a gooey molten center – pure indulgence!
+                                A warm, rich chocolate cake with a gooey molten center â€“ pure indulgence!
                             </p>
                             <div class="extra-content mt-2">
                                 <p class="text-gray-600">
@@ -922,7 +923,7 @@
                 </div>
 
                 <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 Foodie Delight. All rights reserved.</p>
+                    <p class="text-gray-400 mb-4 md:mb-0">Â© 2023 Foodie Delight. All rights reserved.</p>
                     <div class="flex space-x-6">
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
@@ -1196,6 +1197,8 @@
             // Call this function when the page loads
             document.addEventListener('DOMContentLoaded', checkLoginStatus);
         </script>
+        <script src="site.js" defer></script>
     </body>
 
 </html>
+

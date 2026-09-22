@@ -13,6 +13,7 @@
     <!-- 3D CSS Effects Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="order.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="site.css" media="screen" type="text/css">
 </head>
 <body>
     <!-- 3D Floating Background Elements -->
@@ -78,21 +79,21 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control form-control-custom" id="name" placeholder="Enter your full name">
+                                <input type="text" class="form-control form-control-custom" id="name" placeholder="Enter your full name" autocomplete="name" required minlength="2">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control form-control-custom" id="email" placeholder="Enter your email">
+                                <input type="email" class="form-control form-control-custom" id="email" placeholder="Enter your email" autocomplete="email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control form-control-custom" id="phone" placeholder="Enter your phone number">
+                                <input type="tel" class="form-control form-control-custom" id="phone" placeholder="Enter your phone number" autocomplete="tel" required pattern="[0-9+() -]{10,}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="address" class="form-label">Delivery Address</label>
-                                <textarea class="form-control form-control-custom" id="address" rows="3" placeholder="Enter your delivery address"></textarea>
+                                <textarea class="form-control form-control-custom" id="address" rows="3" placeholder="Enter your delivery address" autocomplete="street-address" required minlength="10"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="instructions" class="form-label">Special Instructions</label>
@@ -102,19 +103,19 @@
                     </div>
                     
                     <h4 class="mt-4 mb-3">Payment Method</h4>
-                    <div class="payment-methods">
-                        <div class="payment-method active" data-method="card">
+                    <div class="payment-methods" role="radiogroup" aria-label="Payment method">
+                        <button type="button" class="payment-method active" data-method="card" role="radio" aria-checked="true">
                             <i class="fas fa-credit-card"></i>
                             <p>Credit/Debit Card</p>
-                        </div>
-                        <div class="payment-method" data-method="paypal">
+                        </button>
+                        <button type="button" class="payment-method" data-method="paypal" role="radio" aria-checked="false">
                             <i class="fab fa-cc-paypal"></i>
                             <p>PayPal</p>
-                        </div>
-                        <div class="payment-method" data-method="cash">
+                        </button>
+                        <button type="button" class="payment-method" data-method="cash" role="radio" aria-checked="false">
                             <i class="fas fa-money-bill-wave"></i>
                             <p>Cash on Delivery</p>
-                        </div>
+                        </button>
                     </div>
                     
                     <div class="d-flex justify-content-between mt-4">
@@ -378,6 +379,7 @@
                 method.addEventListener('click', function() {
                     document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
                     this.classList.add('active');
+                    document.querySelectorAll('.payment-method').forEach(m => m.setAttribute('aria-checked', String(m === this)));
                 });
             });
             
@@ -396,8 +398,10 @@
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             
-            if (!name || !email || !phone || !address) {
-                alert('Please fill in all required fields.');
+            const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const phoneIsValid = /^[0-9+() -]{10,}$/.test(phone);
+            if (name.trim().length < 2 || !emailIsValid || !phoneIsValid || address.trim().length < 10) {
+                window.FoodieStore?.showToast('Please check your name, email, phone, and address.', 'fa-circle-exclamation');
                 return;
             }
             
@@ -415,7 +419,7 @@
         
         // Clear cart function
         function clearCart() {
-            if (confirm('Are you sure you want to clear your cart?')) {
+            if (window.confirm('Are you sure you want to clear your cart?')) {
                 cart = [];
                 localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartCount();
@@ -445,7 +449,7 @@
         
         // Remove item function
         function removeItem(index) {
-            if (confirm('Remove this item from your cart?')) {
+            if (window.confirm('Remove this item from your cart?')) {
                 cart.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartCount();
@@ -473,5 +477,6 @@
             */
         });
     </script>
+    <script src="site.js" defer></script>
 </body>
 </html>

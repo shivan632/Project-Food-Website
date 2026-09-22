@@ -1,106 +1,62 @@
-// config.js - Keep this separate and add to .gitignore
-import { GoogleGenerativeAI } from "@google/generative-ai";
+document.addEventListener('DOMContentLoaded', () => {
+    const widget = document.querySelector('#chatbot-widget');
+    const messages = document.querySelector('#chat-messages');
+    const form = document.querySelector('#chatbot-form');
+    const input = document.querySelector('#chatbot-input');
+    const typingIndicator = document.querySelector('#typing-indicator');
+    const toggle = document.querySelector('#chatbot-toggle');
+    const close = document.querySelector('#close-chatbot');
 
- 
+    if (!widget || !messages || !form || !input) return;
 
-
-const genAI = new GoogleGenerativeAI("AIzaSyBV98k7ZuLCe-4YiYMdo7qXlcBbzMRAFNA"); // Replace with your actual key
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // or "gemini-1.5-pro"
-
-document.addEventListener('DOMContentLoaded', function() {
-    const chatWidget = document.getElementById('chatbot-widget');
-    const closeButton = document.getElementById('close-chatbot');
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.querySelector('#chatbot-widget input');
-    const sendButton = document.querySelector('#chatbot-widget button');
-    const chatLoading = document.getElementById('chat-loading');
-    
-    // Toggle chatbot visibility
-    closeButton.addEventListener('click', () => {
-        chatWidget.classList.add('hidden');
-    });
-    
-    // Initialize chat history
-    const chatHistory = [
-        { role: "model", parts: [{ text: "Hi there! 👋 How can I help you today?" }] }
-    ];
-    
-    // Function to add a message to the chat
     function addMessage(role, text) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'mb-4';
-        
-        const bubbleDiv = document.createElement('div');
-        bubbleDiv.className = role === 'user' 
-            ? 'bg-primary text-white rounded-lg p-3 max-w-xs ml-auto'
-            : 'bg-gray-100 dark:bg-gray-700 rounded-lg p-3 max-w-xs';
-        
-        bubbleDiv.innerHTML = `<p>${text}</p>`;
-        messageDiv.appendChild(bubbleDiv);
-        chatMessages.appendChild(messageDiv);
-        
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        const message = document.createElement('div');
+        message.className = `message ${role === 'user' ? 'user-message' : 'bot-message'}`;
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.textContent = text;
+        message.appendChild(bubble);
+        messages.appendChild(message);
+        messages.scrollTop = messages.scrollHeight;
     }
-    
-    // Function to call Gemini API
-    async function callGemini(message) {
-        chatLoading.classList.remove('hidden');
-        
-        // Add user message to history
-        chatHistory.push({ role: "user", parts: [{ text: message }] });
-        
-        try {
-            // Start a chat session (or continue existing one)
-            const chat = model.startChat({
-                history: chatHistory,
-                generationConfig: {
-                    temperature: 0.7,
-                    maxOutputTokens: 1000
-                },
-            });
-            
-            // Send message and get response
-            const result = await chat.sendMessage(message);
-            const response = await result.response;
-            const assistantMessage = response.text();
-            
-            addMessage('model', assistantMessage);
-            chatHistory.push({ role: "model", parts: [{ text: assistantMessage }] });
-            
-        } catch (error) {
-            console.error('Error calling Gemini:', error);
-            addMessage('model', "Sorry, I'm having trouble connecting. Please try again later.");
-        } finally {
-            chatLoading.classList.add('hidden');
-        }
+
+    function getReply(message) {
+        const normalized = message.toLowerCase();
+        if (normalized.includes('menu') || normalized.includes('food')) return 'You can browse vegetarian dishes, drinks, and desserts from the Menu.';
+        if (normalized.includes('delivery') || normalized.includes('time')) return 'We aim to deliver within 30 to 45 minutes.';
+        if (normalized.includes('hour') || normalized.includes('open')) return 'Foodie Delight is open daily from 10:00 AM to 11:00 PM.';
+        if (normalized.includes('cart') || normalized.includes('order')) return 'Add an item to your cart, then open Order to review and confirm it.';
+        return 'I can help with our menu, delivery times, opening hours, and orders.';
     }
-    
-    // Handle send button click
-    sendButton.addEventListener('click', sendMessage);
-    
-    // Handle Enter key
-    chatInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
+
+    function respond(message) {
+        typingIndicator?.classList.add('is-visible');
+        window.setTimeout(() => {
+            typingIndicator?.classList.remove('is-visible');
+            addMessage('model', getReply(message));
+        }, 450);
+    }
+
+    function setOpen(isOpen) {
+        widget.classList.toggle('is-open', isOpen);
+        toggle?.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) input.focus();
+    }
+
+    toggle?.addEventListener('click', () => setOpen(!widget.classList.contains('is-open')));
+    close?.addEventListener('click', () => setOpen(false));
+    document.querySelectorAll('.quick-question').forEach((button) => {
+        button.addEventListener('click', () => {
+            input.value = button.textContent;
+            form.requestSubmit();
+        });
     });
-    
-    function sendMessage() {
-        const message = chatInput.value.trim();
-        if (message) {
-            addMessage('user', message);
-            chatInput.value = '';
-            callGemini(message);
-        }
-    }
-    
-    // Optional: Add a toggle button to show/hide the chatbot
-    const toggleButton = document.createElement('button');
-    toggleButton.innerHTML = '<i class="fas fa-robot"></i>';
-    toggleButton.className = 'fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-colors';
-    toggleButton.addEventListener('click', () => {
-        chatWidget.classList.toggle('hidden');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const message = input.value.trim();
+        if (!message) return;
+        addMessage('user', message);
+        input.value = '';
+        respond(message);
     });
-    document.body.appendChild(toggleButton);
 });

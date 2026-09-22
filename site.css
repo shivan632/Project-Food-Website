@@ -1,0 +1,135 @@
+:root {
+    --brand-primary: #d9573f;
+    --brand-primary-dark: #b84330;
+    --brand-secondary: #2f7d68;
+    --brand-accent: #f4c95d;
+    --brand-ink: #263238;
+    --brand-muted: #66736f;
+    --brand-surface: #fffaf3;
+    --brand-surface-strong: #ffffff;
+    --brand-border: rgba(38, 50, 56, 0.12);
+    --brand-shadow: 0 18px 45px rgba(64, 45, 30, 0.12);
+    --brand-radius: 18px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--brand-ink);
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(244, 201, 93, 0.9);
+    outline-offset: 3px;
+}
+
+.site-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: min(90vw, 420px);
+    padding: 0.85rem 1.1rem;
+    color: #fff;
+    background: var(--brand-ink);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    box-shadow: var(--brand-shadow);
+    transform: translate(-50%, 1rem);
+    opacity: 0;
+    pointer-events: none;
+    animation: site-toast-in 220ms ease forwards;
+}
+
+.site-toast.is-leaving {
+    animation: site-toast-out 180ms ease forwards;
+}
+
+@keyframes site-toast-in {
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@keyframes site-toast-out {
+    to { transform: translate(-50%, 1rem); opacity: 0; }
+}
+
+[data-cart-count] {
+    min-width: 1.35rem;
+    height: 1.35rem;
+    padding: 0 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+}
+
+[data-cart-count].is-updated {
+    animation: cart-count-pop 360ms ease;
+}
+
+@keyframes cart-count-pop {
+    50% { transform: scale(1.25); }
+}
+
+.motion-reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.search-empty-state {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    color: var(--brand-muted);
+    text-align: center;
+    border: 1px dashed var(--brand-border);
+    border-radius: var(--brand-radius);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .motion-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-toast {
+        bottom: 1rem;
+        width: calc(100vw - 2rem);
+        border-radius: 14px;
+    }
+}
