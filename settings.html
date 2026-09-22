@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings | Foodie Delight</title>
-    <meta name="description" content="Manage your Foodie Delight preferences and account settings.">
-    <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="site.css">
-    <link rel="stylesheet" href="account.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="account-page">
-    <main class="account-shell">
-        <nav class="account-nav" aria-label="Account navigation">
-            <a class="account-logo" href="home.html"><i class="fas fa-utensils" aria-hidden="true"></i>Foodie<span>Delight</span></a>
-            <div class="account-nav-links">
-                <a href="home.html"><i class="fas fa-house" aria-hidden="true"></i> Home</a>
-                <a href="order.html"><i class="fas fa-bag-shopping" aria-hidden="true"></i> Orders</a>
-                <a href="profile.html"><i class="fas fa-user" aria-hidden="true"></i> Profile</a>
-                <a href="settings.html" aria-current="page"><i class="fas fa-sliders" aria-hidden="true"></i> Settings</a>
-            </div>
-        </nav>
 
-        <header class="account-heading">
-            <div class="account-kicker">Preferences</div>
-            <h1>Set up your ideal Foodie experience.</h1>
-            <p>Choose how the site looks, moves, and keeps you updated while you decide what to eat.</p>
-        </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Settings | Foodie Delight</title>
+        <meta name="description" content="Manage your Foodie Delight preferences and account settings.">
+        <link rel="icon" href="food_img/logo.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="site.css">
+        <link rel="stylesheet" href="account.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
 
-        <section class="account-card">
-            <h2>Experience settings</h2>
-            <div id="settings-form" class="preference-list">
-                <div class="preference-row">
-                    <div><strong>Dark theme</strong><span>Use a darker interface in low-light environments.</span></div>
-                    <label class="switch"><span class="sr-only">Dark theme</span><input type="checkbox" data-preference="theme"><span class="switch-track"></span></label>
+    <body class="account-page">
+        <main class="account-shell">
+            <nav class="account-nav" aria-label="Account navigation">
+                <a class="account-logo" href="home.html"><i class="fas fa-utensils"
+                        aria-hidden="true"></i>Foodie<span>Delight</span></a>
+                <div class="account-nav-links">
+                    <a href="home.html"><i class="fas fa-house" aria-hidden="true"></i> Home</a>
+                    <a href="order.html"><i class="fas fa-bag-shopping" aria-hidden="true"></i> Orders</a>
+                    <a href="profile.html"><i class="fas fa-user" aria-hidden="true"></i> Profile</a>
+                    <a href="settings.html" aria-current="page"><i class="fas fa-sliders" aria-hidden="true"></i>
+                        Settings</a>
                 </div>
-                <div class="preference-row">
-                    <div><strong>Order updates</strong><span>Receive helpful status updates about your orders.</span></div>
-                    <label class="switch"><span class="sr-only">Order updates</span><input type="checkbox" data-preference="notifications"><span class="switch-track"></span></label>
-                </div>
-                <div class="preference-row">
-                    <div><strong>Remember delivery location</strong><span>Keep your preferred delivery details ready next time.</span></div>
-                    <label class="switch"><span class="sr-only">Remember delivery location</span><input type="checkbox" data-preference="location"><span class="switch-track"></span></label>
-                </div>
-                <div class="preference-row">
-                    <div><strong>Motion effects</strong><span>Allow the subtle animations and 3D food accent.</span></div>
-                    <label class="switch"><span class="sr-only">Motion effects</span><input type="checkbox" data-preference="motion"><span class="switch-track"></span></label>
-                </div>
-            </div>
+            </nav>
 
-            <h3>Account data</h3>
-            <p class="account-heading" style="margin: 0; max-width: 600px; font-size: 0.95rem;">This demo stores profile preferences locally in your browser. No account data is sent to a server.</p>
-            <button class="account-button secondary" type="button" data-clear-data><i class="fas fa-rotate-left" aria-hidden="true"></i> Reset local preferences</button>
-        </section>
-    </main>
-    <script src="account.js"></script>
-    <script src="site.js" defer></script>
-</body>
+            <header class="account-heading">
+                <div class="account-kicker">Preferences</div>
+                <h1>Set up your ideal Foodie experience.</h1>
+                <p>Choose how the site looks, moves, and keeps you updated while you decide what to eat.</p>
+            </header>
+
+            <section class="account-card">
+                <h2>Experience settings</h2>
+                <div id="settings-form" class="preference-list">
+                    <div class="preference-row">
+                        <div><strong>Dark theme</strong><span>Use a darker interface in low-light environments.</span>
+                        </div>
+                        <label class="switch"><span class="sr-only">Dark theme</span><input type="checkbox"
+                                data-preference="theme"><span class="switch-track"></span></label>
+                    </div>
+                    <div class="preference-row">
+                        <div><strong>Order updates</strong><span>Receive helpful status updates about your
+                                orders.</span></div>
+                        <label class="switch"><span class="sr-only">Order updates</span><input type="checkbox"
+                                data-preference="notifications"><span class="switch-track"></span></label>
+                    </div>
+                    <div class="preference-row">
+                        <div><strong>Remember delivery location</strong><span>Keep your preferred delivery details ready
+                                next time.</span></div>
+                        <label class="switch"><span class="sr-only">Remember delivery location</span><input
+                                type="checkbox" data-preference="location"><span class="switch-track"></span></label>
+                    </div>
+                    <div class="preference-row">
+                        <div><strong>Motion effects</strong><span>Allow the subtle animations and 3D food accent.</span>
+                        </div>
+                        <label class="switch"><span class="sr-only">Motion effects</span><input type="checkbox"
+                                data-preference="motion"><span class="switch-track"></span></label>
+                    </div>
+                </div>
+
+                <h3>Account data</h3>
+                <p class="account-heading" style="margin: 0; max-width: 600px; font-size: 0.95rem;">This demo stores
+                    profile preferences locally in your browser. No account data is sent to a server.</p>
+                <button class="account-button secondary" type="button" data-clear-data><i class="fas fa-rotate-left"
+                        aria-hidden="true"></i> Reset local preferences</button>
+            </section>
+        </main>
+        <script src="account.js"></script>
+        <script src="site.js" defer></script>
+    </body>
+
 </html>
